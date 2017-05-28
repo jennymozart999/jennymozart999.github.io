@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+<p style="font-size:20px"><strong>记录一下解决Chrome主页被hao123劫持的过程</strong></p>
+
+这一个多月以来，我一直饱受Chrome主页被hao123劫持之苦，虽然我自己之前也是把百度设为主页，但是我不喜欢百度旗下的hao123。
+
+发现主页被劫持之后，我在网上搜了解决方法。
+
+第一个尝试的是查看桌面快捷方式的属性，但发现快捷方式只是指向chrome.exe，并没有被添加hao123.com，所以没法修改。
+
+第二个尝试的是在程序安装文件夹里查看chrome.exe的属性，发现它也没有被添加任何hao123.com的链接，但是直接点击chrome.exe也还是会被劫持到hao123。于是我又试了下网上的建议，把chrome.exe重命名为chrome2.exe，然后再发送快捷方式到桌面，竟然成功了。然而高兴没两天，主页又被劫持了，打开安装文件夹，发现竟然多了一个chrome.exe，和chrome2.exe并存，而且不管是桌面快捷方式还是chrome.exe都是直接被导向去了hao123。
+
+第三个尝试的是修改hosts文件，让我的电脑访问不了hao123。这样很有效，当我打开浏览器的时候，确实访问不了hao123了，但是我的浏览器没法停止自动跳转hao123这个动作，只是会在访问不成功后报错“无法访问此网站”。
+
+第四个想尝试的是注册表，无奈不会改，就作罢了。
+
+然后我就放弃了，从hosts里面把hao123解放出来，不再阻止浏览器访问hao123。
+
+这个时候我发现，每当打开浏览器的时候，地址栏出现的网址并不是<a href="http://www.hao123.com">hao123.com</a>本身 ，而是一个很长的网址，几秒后会跳转到<a href="http://www.hao123.com/tn=96363290_hao_pg">http://www.hao123.com/tn=96363290_hao_pg</a>。
+
+看到tn=96363290_hao_pg这个部分，我意识到这肯定是负责为hao123做这个推广的人的账号，而跳转前的那个网址肯定是关键，于是我把浏览器关掉再重新打开，趁机记录下最开始出现的那个很长的网址，它是这样的：
+<a href="https://vasapi.rdtuijian.com/jumber/v1?code=002_1000">https://vasapi.rdtuijian.com/jumber/v1?code=002_1000</a>
+
+我在google上搜索了rdtuijian.com这个域名的注册信息，查到它是2016年2月在goddady上注册的，注册地在美国，不过这些信息没什么用。
+
+继续在google上搜rdtuijian.com，有个好玩的网址出现了：
+<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a>
+
+它跟<a href="https://vasapi.rdtuijian.com/jumber/v1?code=002_1000">https://vasapi.rdtuijian.com/jumber/v1?code=002_1000</a>会有什么关系呢？
+
+点开<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a>看发现是个wap版的书城，这个信息本身也没什么用，但是再搜索book.rdtuijian.com/web/index.html就会发现一个有趣的网页
+<a href="http://bbs.mo.wps.cn/forum.php?mod=viewthread&tid=16210&extra=page%3D1">http://bbs.mo.wps.cn/forum.php?mod=viewthread&tid=16210&extra=page%3D1</a>
+
+3楼的回帖里是这么说的
+
+"如果您是WPS会员，现在是无法看到读书入口，您可以暂时退出WPS账号，或者直接浏览器访问——<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a>"
+
+<a href="http://bbs.mo.wps.cn/forum.php">http://bbs.mo.wps.cn/forum.php</a>这个网站貌似是WPS的官方论坛，而发表这个回帖的是一个admin账号，从这个语气上看，感觉http://book.rdtuijian.com/web/index.html应该是WPS下属的书城，那么这次的浏览器主页劫持应该就是WPS的锅没跑了。
+
+我的电脑上装了WPS也有好几年了，但是直到这两个月才出现浏览器主页劫持的问题，这很可能跟最近安装的插件有关，于是我打开控制面板的添加和删除程序，找到最近一次安装WPS插件的时间，果然让我发现，2017年3月18日我装了一个PDF转WORD的WPS插件，但是同一时间被安装的软件还有一个叫Yuike Cloud的东西，PDF转WORD的功能我还是需要的，如果真要尝试删除什么东西的话，就从Yuike cloud开始着手吧。
+
+删掉Yuike cloud之后再打开Chrome浏览器，终于直接跳转了我设置的主页，我简直要喜极而泣了。
+
+这次解决浏览器主页被劫持的过程大概就是这样，希望大家看了之后也能有启发。
+
+以上~
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p style="font-size:20px"><strong>记录一下解决Chrome主页被hao123劫持的过程</strong></p>
+
+<p>这一个多月以来，我一直饱受Chrome主页被hao123劫持之苦，虽然我自己之前也是把百度设为主页，但是我不喜欢百度旗下的hao123。</p>
+
+<p>发现主页被劫持之后，我在网上搜了解决方法。</p>
+
+<p>第一个尝试的是查看桌面快捷方式的属性，但发现快捷方式只是指向chrome.exe，并没有被添加hao123.com，所以没法修改。</p>
+
+<p>第二个尝试的是在程序安装文件夹里查看chrome.exe的属性，发现它也没有被添加任何hao123.com的链接，但是直接点击chrome.exe也还是会被劫持到hao123。于是我又试了下网上的建议，把chrome.exe重命名为chrome2.exe，然后再发送快捷方式到桌面，竟然成功了。然而高兴没两天，主页又被劫持了，打开安装文件夹，发现竟然多了一个chrome.exe，和chrome2.exe并存，而且不管是桌面快捷方式还是chrome.exe都是直接被导向去了hao123。</p>
+
+<p>第三个尝试的是修改hosts文件，让我的电脑访问不了hao123。这样很有效，当我打开浏览器的时候，确实访问不了hao123了，但是我的浏览器没法停止自动跳转hao123这个动作，只是会在访问不成功后报错“无法访问此网站”。</p>
+
+<p>第四个想尝试的是注册表，无奈不会改，就作罢了。</p>
+
+<p>然后我就放弃了，从hosts里面把hao123解放出来，不再阻止浏览器访问hao123。</p>
+
+<p>这个时候我发现，每当打开浏览器的时候，地址栏出现的网址并不是<a href="http://www.hao123.com">hao123.com</a>本身 ，而是一个很长的网址，几秒后会跳转到<a href="http://www.hao123.com/tn=96363290_hao_pg">http://www.hao123.com/tn=96363290<em>hao</em>pg</a>。</p>
+
+<p>看到tn=96363290<em>hao</em>pg这个部分，我意识到这肯定是负责为hao123做这个推广的人的账号，而跳转前的那个网址肯定是关键，于是我把浏览器关掉再重新打开，趁机记录下最开始出现的那个很长的网址，它是这样的：
+<a href="https://vasapi.rdtuijian.com/jumber/v1?code=002_1000">https://vasapi.rdtuijian.com/jumber/v1?code=002_1000</a></p>
+
+<p>我在google上搜索了rdtuijian.com这个域名的注册信息，查到它是2016年2月在goddady上注册的，注册地在美国，不过这些信息没什么用。</p>
+
+<p>继续在google上搜rdtuijian.com，有个好玩的网址出现了：
+<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a></p>
+
+<p>它跟<a href="https://vasapi.rdtuijian.com/jumber/v1?code=002_1000">https://vasapi.rdtuijian.com/jumber/v1?code=002_1000</a>会有什么关系呢？</p>
+
+<p>点开<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a>看发现是个wap版的书城，这个信息本身也没什么用，但是再搜索book.rdtuijian.com/web/index.html就会发现一个有趣的网页
+<a href="http://bbs.mo.wps.cn/forum.php?mod=viewthread&amp;tid=16210&amp;extra=page%3D1">http://bbs.mo.wps.cn/forum.php?mod=viewthread&amp;tid=16210&amp;extra=page%3D1</a></p>
+
+<p>3楼的回帖里是这么说的</p>
+
+<p>"如果您是WPS会员，现在是无法看到读书入口，您可以暂时退出WPS账号，或者直接浏览器访问——<a href="http://book.rdtuijian.com/web/index.html">http://book.rdtuijian.com/web/index.html</a>"</p>
+
+<p><a href="http://bbs.mo.wps.cn/forum.php">http://bbs.mo.wps.cn/forum.php</a>这个网站貌似是WPS的官方论坛，而发表这个回帖的是一个admin账号，从这个语气上看，感觉http://book.rdtuijian.com/web/index.html应该是WPS下属的书城，那么这次的浏览器主页劫持应该就是WPS的锅没跑了。</p>
+
+<p>我的电脑上装了WPS也有好几年了，但是直到这两个月才出现浏览器主页劫持的问题，这很可能跟最近安装的插件有关，于是我打开控制面板的添加和删除程序，找到最近一次安装WPS插件的时间，果然让我发现，2017年3月18日我装了一个PDF转WORD的WPS插件，但是同一时间被安装的软件还有一个叫Yuike Cloud的东西，PDF转WORD的功能我还是需要的，如果真要尝试删除什么东西的话，就从Yuike cloud开始着手吧。</p>
+
+<p>删掉Yuike cloud之后再打开Chrome浏览器，终于直接跳转了我设置的主页，我简直要喜极而泣了。</p>
+
+<p>这次解决浏览器主页被劫持的过程大概就是这样，希望大家看了之后也能有启发。</p>
+
+<p>以上~</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "201705281430.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
