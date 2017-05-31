@@ -37,14 +37,19 @@
 
 于是我不禁想了，有没有什么办法能把csv文件批量转成xls文件，然后我再把xls文件进行统一合并呢？
 
-百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA，我找到两种代码
+百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA宏，我找到两种代码
 
-1. 可以为一个文件夹内的所有csv文件生成同名的xls文件，同时删除原来的csv文件。[百度知道链接](https://zhidao.baidu.com/question/556317774.html)
+1. 可以为一个文件夹内的所有csv文件生成同名的xls文件，同时删除原来的csv文件。<a href="https://zhidao.baidu.com/question/556317774.html" target="_blank">百度知道链接</a>
 
 2. 可以为一个文件夹内的所有csv文件生成同名的xls文件，同时在一个Excel表格里面汇总所有csv文件里面的内容，且保留原来的csv文件。
-[百度经验链接](http://jingyan.baidu.com/article/92255446a01d18851648f432.html)
+<a href="http://jingyan.baidu.com/article/92255446a01d18851648f432.html"
+ target="_blank">百度经验链接</a>
 
-我选择了第二种，相关VBA代码如下：
+因为需要很多后续的处理，所以我选择了第二种。
+
+原作者写的代码里面有汉字，但是不知为什么我一复制到自己的Excel里面，汉字就会变成乱码，所以我把原来代码里面的汉字都改成了英文，只是改了这个宏的名称和最后的提示框里面的文字。
+
+相关VBA代码如下：
 
 <pre><code>Sub conversion()
     Dim FilePath, MyFile, iPath As String
@@ -121,15 +126,19 @@ End Sub</code></pre>
 
 <p>于是我不禁想了，有没有什么办法能把csv文件批量转成xls文件，然后我再把xls文件进行统一合并呢？</p>
 
-<p>百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA，我找到两种代码</p>
+<p>百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA宏，我找到两种代码</p>
 
 <ol>
-<li><p>可以为一个文件夹内的所有csv文件生成同名的xls文件，同时删除原来的csv文件。<a href="https://zhidao.baidu.com/question/556317774.html">百度知道链接</a></p></li>
+<li><p>可以为一个文件夹内的所有csv文件生成同名的xls文件，同时删除原来的csv文件。<a href="https://zhidao.baidu.com/question/556317774.html" target="_blank">百度知道链接</a></p></li>
 <li><p>可以为一个文件夹内的所有csv文件生成同名的xls文件，同时在一个Excel表格里面汇总所有csv文件里面的内容，且保留原来的csv文件。
-<a href="http://jingyan.baidu.com/article/92255446a01d18851648f432.html">百度经验链接</a></p></li>
+<a href="http://jingyan.baidu.com/article/92255446a01d18851648f432.html" target="_blank">百度经验链接</a></p></li>
 </ol>
 
-<p>我选择了第二种，相关VBA代码如下：</p>
+<p>因为需要很多后续的处理，所以我选择了第二种。</p>
+
+<p>原作者写的代码里面有汉字，但是不知为什么我一复制到自己的Excel里面，汉字就会变成乱码，所以我把原来代码里面的汉字都改成了英文，只是改了这个宏的名称和最后的提示框里面的文字。</p>
+
+<p>相关VBA代码如下：</p>
 
 <pre><code>Sub conversion()
     Dim FilePath, MyFile, iPath As String
