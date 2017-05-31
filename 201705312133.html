@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+##如何批量把csv文件转成xls文件？
+
+最近有个工作任务上需要把大概几百个相同内容形式的csv文件依次打开，筛选，拷贝出需要的部分，粘贴到一个新的Excel表里，然后关掉刚才的csv，再打开下一个csv文件。
+
+如此循环<strong>几百遍</strong>。
+
+然而日常的工作还是要做，客户和其他同事的各种问题如机关枪一般向我扫射过来，同时我还得争分夺秒地打开csv，筛选，拷贝，粘贴，关掉csv，再打开下一个csv。想想都绝望。
+
+这个任务今天截止，满打满算，我也只有3个工作日来完成它，前面两天做到崩溃，也只做完了四分之一，如果还按照之前的做法，今天是绝对不可能完成的了。
+
+于是我不禁想了，有没有什么办法能把csv文件批量转成xls文件，然后我再把xls文件进行统一合并呢？
+
+百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA，我找到两种代码
+
+1. 可以执行将一个文件夹内的所有csv文件都生成一个同样名称的xls文件，同时删除原来的csv文件。
+
+2. 可以执行将一个文件夹内的所有csv文件都生成一个同样名称的xls文件，同时在一个汇总的Excel表格里面汇总所有csv文件里面的内容，且保留原来的csv文件。
+[链接](http://jingyan.baidu.com/article/92255446a01d18851648f432.html)
+
+我选择了第二种，相关VBA代码如下：
+
+<pre><code>Sub conversion()
+    Dim FilePath, MyFile, iPath As String
+    iPath = ThisWorkbook.Path
+    MyFile = Dir(iPath & "\*.CSV")
+    If MyFile <> "" Then
+        Do
+            On Error Resume Next
+            If MyFile = ThisWorkbook.Name Then MyFile = Dir
+            Workbooks.Open (iPath & "\" & MyFile)
+            MyFile = Replace(MyFile, ".csv", ".xls")
+            Name = "\" & MyFile
+            FilePath = iPath & Name
+            Application.ScreenUpdating = False
+            ActiveWorkbook.SaveAs Filename:=FilePath, FileFormat:= _
+                                                                  xlNormal, CreateBackup:=False
+            Workbooks(MyFile).Close True
+            Application.ScreenUpdating = True
+            MyFile = Dir
+        Loop While MyFile <> ""
+Dim MyPath, MyName, AWbName
+Dim Wb As Workbook, WbN As String
+Dim G As Long
+Dim Num As Long
+Dim BOX As String
+Application.ScreenUpdating = False
+MyPath = ActiveWorkbook.Path
+MyName = Dir(MyPath & "\" & "*.xls")
+AWbName = ActiveWorkbook.Name
+Num = 0
+Do While MyName <> ""
+If MyName <> AWbName Then
+Set Wb = Workbooks.Open(MyPath & "\" & MyName)
+Num = Num + 1
+With Workbooks(1).ActiveSheet
+.Cells(.Range("A65536").End(xlUp).Row + 2, 1) = Left(MyName, Len(MyName) - 4)
+For G = 1 To Sheets.Count
+Wb.Sheets(G).UsedRange.Copy .Cells(.Range("A65536").End(xlUp).Row + 1, 1)
+Next
+WbN = WbN & Chr(13) & Wb.Name
+Wb.Close False
+End With
+End If
+MyName = Dir
+Loop
+Range("A1").Select
+Application.ScreenUpdating = True
+MsgBox "converted " & Num & " workbooks " & Chr(13) & WbN, vbInformation, "Result"
+End If
+End Sub</code></pre>
+
+按照百度经验里面写的那样，先在需要转换csv文件的文件夹里面新建一个Excel表格，给它添加宏，再将这个宏的内容修改成以上的代码，然后按“执行”，等待最后的结果通知信息，就OK啦！
+
+执行完毕之后，你就会得到一个包含了这个文件夹里所有csv里面内容的excel表格，可以直接对它进行筛选，比起一个一个打开csv筛选后再拷贝简直方便了不是一点半点。
+
+今天我用了两个小时来寻找、学习和熟悉这个方法，后面用两个小时的时间去执行它，完成的工作量已经达到了前面两天的总和。它实在是一个不可多得的好方法，就算今天没有用上，总有一天一定会用到的，如果我有作者的联系方式的话，我简直想给作者写感谢信了。
+
+这次的学习成果就是这么多，希望也能对大家有所启发。
+
+以上~
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h2 id="csvxls">如何批量把csv文件转成xls文件？</h2>
+
+<p>最近有个工作任务上需要把大概几百个相同内容形式的csv文件依次打开，筛选，拷贝出需要的部分，粘贴到一个新的Excel表里，然后关掉刚才的csv，再打开下一个csv文件。</p>
+
+<p>如此循环<strong>几百遍</strong>。</p>
+
+<p>然而日常的工作还是要做，客户和其他同事的各种问题如机关枪一般向我扫射过来，同时我还得争分夺秒地打开csv，筛选，拷贝，粘贴，关掉csv，再打开下一个csv。想想都绝望。</p>
+
+<p>这个任务今天截止，满打满算，我也只有3个工作日来完成它，前面两天做到崩溃，也只做完了四分之一，如果还按照之前的做法，今天是绝对不可能完成的了。</p>
+
+<p>于是我不禁想了，有没有什么办法能把csv文件批量转成xls文件，然后我再把xls文件进行统一合并呢？</p>
+
+<p>百度了之后，发现确实有，最有效的方法就是在Excel里面添加VBA，我找到两种代码</p>
+
+<ol>
+<li><p>可以执行将一个文件夹内的所有csv文件都生成一个同样名称的xls文件，同时删除原来的csv文件。</p></li>
+<li><p>可以执行将一个文件夹内的所有csv文件都生成一个同样名称的xls文件，同时在一个汇总的Excel表格里面汇总所有csv文件里面的内容，且保留原来的csv文件。
+<a href="http://jingyan.baidu.com/article/92255446a01d18851648f432.html">链接</a></p></li>
+</ol>
+
+<p>我选择了第二种，相关VBA代码如下：</p>
+
+<pre><code>Sub conversion()
+    Dim FilePath, MyFile, iPath As String
+    iPath = ThisWorkbook.Path
+    MyFile = Dir(iPath &amp; "\*.CSV")
+    If MyFile &lt;&gt; "" Then
+        Do
+            On Error Resume Next
+            If MyFile = ThisWorkbook.Name Then MyFile = Dir
+            Workbooks.Open (iPath &amp; "\" &amp; MyFile)
+            MyFile = Replace(MyFile, ".csv", ".xls")
+            Name = "\" &amp; MyFile
+            FilePath = iPath &amp; Name
+            Application.ScreenUpdating = False
+            ActiveWorkbook.SaveAs Filename:=FilePath, FileFormat:= _
+                                                                  xlNormal, CreateBackup:=False
+            Workbooks(MyFile).Close True
+            Application.ScreenUpdating = True
+            MyFile = Dir
+        Loop While MyFile &lt;&gt; ""
+Dim MyPath, MyName, AWbName
+Dim Wb As Workbook, WbN As String
+Dim G As Long
+Dim Num As Long
+Dim BOX As String
+Application.ScreenUpdating = False
+MyPath = ActiveWorkbook.Path
+MyName = Dir(MyPath &amp; "\" &amp; "*.xls")
+AWbName = ActiveWorkbook.Name
+Num = 0
+Do While MyName &lt;&gt; ""
+If MyName &lt;&gt; AWbName Then
+Set Wb = Workbooks.Open(MyPath &amp; "\" &amp; MyName)
+Num = Num + 1
+With Workbooks(1).ActiveSheet
+.Cells(.Range("A65536").End(xlUp).Row + 2, 1) = Left(MyName, Len(MyName) - 4)
+For G = 1 To Sheets.Count
+Wb.Sheets(G).UsedRange.Copy .Cells(.Range("A65536").End(xlUp).Row + 1, 1)
+Next
+WbN = WbN &amp; Chr(13) &amp; Wb.Name
+Wb.Close False
+End With
+End If
+MyName = Dir
+Loop
+Range("A1").Select
+Application.ScreenUpdating = True
+MsgBox "converted " &amp; Num &amp; " workbooks " &amp; Chr(13) &amp; WbN, vbInformation, "Result"
+End If
+End Sub</code></pre>
+
+<p>按照百度经验里面写的那样，先在需要转换csv文件的文件夹里面新建一个Excel表格，给它添加宏，再将这个宏的内容修改成以上的代码，然后按“执行”，等待最后的结果通知信息，就OK啦！</p>
+
+<p>执行完毕之后，你就会得到一个包含了这个文件夹里所有csv里面内容的excel表格，可以直接对它进行筛选，比起一个一个打开csv筛选后再拷贝简直方便了不是一点半点。</p>
+
+<p>今天我用了两个小时来寻找、学习和熟悉这个方法，后面用两个小时的时间去执行它，完成的工作量已经达到了前面两天的总和。它实在是一个不可多得的好方法，就算今天没有用上，总有一天一定会用到的，如果我有作者的联系方式的话，我简直想给作者写感谢信了。</p>
+
+<p>这次的学习成果就是这么多，希望也能对大家有所启发。</p>
+
+<p>以上~</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "201705312133.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
