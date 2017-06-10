@@ -51,8 +51,28 @@ Do While Cells(n, ActiveCell.Column) <> ""
     n = n + 1
 Loop
 End Sub</code></pre>
-
+缺点：只是填充公式而已，而且要逐行执行<br/>
 累死我了。。。
+
+##计数部分新代码update 20170610
+
+<pre><code>
+Sub Count()
+n = ActiveCell.Row
+m = 0
+Do While Cells(n, ActiveCell.Column) <> ""
+    Mycell = Cells(ActiveCell.Row + m, ActiveCell.Column)
+    Myformula1 = Left(Mycell, Len(Mycell) - 4)
+    Myformula2 = Application.WorksheetFunction.CountIf([$A:$A], Myformula1)
+    Cells(n, ActiveCell.Column + 1) = Myformula1
+    Cells(n, ActiveCell.Column + 2) = Myformula2
+    n = n + 1
+    m = m + 1
+Loop
+End Sub
+</code></pre>
+
+可直接用数值的格式输出最后的结果，而不是填充公式，速度有提升。
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -84,7 +104,28 @@ Do While Cells(n, ActiveCell.Column) &lt;&gt; ""
 Loop
 End Sub</code></pre>
 
-<p>累死我了。。。</p>
+<p>缺点：只是填充公式而已，而且要逐行执行<br>
+累死我了。。。</p>
+
+<h2 id="update20170610">计数部分新代码update 20170610</h2>
+
+<pre><code>
+Sub Count()
+n = ActiveCell.Row
+m = 0
+Do While Cells(n, ActiveCell.Column) &lt;&gt; ""
+    Mycell = Cells(ActiveCell.Row + m, ActiveCell.Column)
+    Myformula1 = Left(Mycell, Len(Mycell) - 4)
+    Myformula2 = Application.WorksheetFunction.CountIf([$A:$A], Myformula1)
+    Cells(n, ActiveCell.Column + 1) = Myformula1
+    Cells(n, ActiveCell.Column + 2) = Myformula2
+    n = n + 1
+    m = m + 1
+Loop
+End Sub
+</code></pre>
+
+<p>可直接用数值的格式输出最后的结果，而不是填充公式，速度有提升。</p>
 <!-- content end -->
 </div>
 <br>
