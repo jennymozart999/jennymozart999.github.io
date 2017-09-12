@@ -8,6 +8,14 @@
     <title>Z's blog</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
+<style>
+.Calc{border-spacing:10px; align:center; padding:5px; background-color: pink;}
+.number{background-color: white; width:80px; font-size: 48px; height:80px; text-align: center; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;display:table-cell;} 
+.function{background-color: white; width:80px; font-size: 48px; height:80px; text-align: center; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;}
+.number:hover{background: #D2E9FF;} 
+.function:hover{background: #D2E9FF;} 
+.result{background-color: white; width:80px; font-size: 48px; height:80px; text-align: right; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black;} 
+</style>
 </head>
 <body>
 <div class="main">
@@ -76,15 +84,6 @@
 <div class="entry" id="main">
 <!-- content -->
 <h2 id="">这是一个简单的计算器</h2>
-
-<style>
-.Calc{border-spacing:10px; align:center; padding:5px; background-color: pink;}
-.number{background-color: white; width:80px; font-size: 48px; height:80px; text-align: center; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;display:table-cell;} 
-.function{background-color: white; width:80px; font-size: 48px; height:80px; text-align: center; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;}
-.number:hover{background: #D2E9FF;} 
-.function:hover{background: #D2E9FF;} 
-.result{background-color: white; width:80px; font-size: 48px; height:80px; text-align: right; line-height: 38px; border-collapse: collapse; border:solid 2px black; box-shadow: 1px 3px 3px black;} 
-</style>
 
 <table align="center" onselectstart="return false" class="Calc" onclick="calculater()">
 <tbody>
