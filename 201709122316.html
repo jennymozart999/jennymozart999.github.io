@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"
+      http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一个简单的计算器</title>
 <style>
 .Calc{border-spacing:10px; align:center; padding:5px; background-color: pink;}
 .number{background-color: white; 
@@ -14,22 +15,36 @@
 .function:hover{background: #D2E9FF;} 
 .result{background-color: white; width:80px; font-size: 48px; height:80px; text-align: right; line-height: 38px;
 border:solid 2px black; box-shadow: 1px 3px 3px black;} 
-@media (min-width:260px) and (max-width:299px) 
-{*{font-size:18px; line-height:50%;} 
+@media (min-width:0px) and (max-width:299px) 
+{*{font-size:18px;} 
 .number{height:28px} 
 .function{height:28px;}
 .result{height:28px;}
 }
-@media (min-width:300px) and (max-width:499px) 
-{*{font-size:25px; line-height:300%;} 
+@media (min-width:300px) and (max-width:380px) 
+{*{font-size:25px;} 
+.number{height:50px} 
+.function{height:50px;}
+.result{height:50px;}
+}
+@media (min-width:381px) and (max-width:430px) 
+{*{font-size:35px;} 
+.number{height:60px} 
+.function{height:60px;}
+.result{height:60px;}
+}
+@media (min-width:431px) and (max-width:499px) 
+{*{font-size:40px;} 
+.number{height:70px} 
+.function{height:70px;}
+.result{height:70px;}
 }
 </style>
 </head>
-
-<h2 id="" text-align="center">这是一个简单的计算器</h2>
 <body onselectstart="return false">
-<a href="index.html" text-align="center">back to homepage</a>
-<table width="100%" height="100%" style="border-color:white; background-color:white;" border="0;" cellspacing="0;" cellpadding="0;">
+<h2 align="center">这是一个简单的计算器</h2>
+<center><a href="index.html">back to homepage</a></center>
+<table width="100%" height="100%" style="" border="0;" cellspacing="0;" cellpadding="0;">
 <tbody>
 <tr>
 <td align="center" valign="middle">
@@ -62,7 +77,7 @@ border:solid 2px black; box-shadow: 1px 3px 3px black;}
 <td class="function" id=""><strong>+</strong>/<strong>-</strong></td>
 <td class="number">0</td>
 <td class="number"><strong>.</strong></td>
-<td class="function" onclick="resultscalcaulte()"><strong>÷</strong></td>
+<td class="function" onclick="resultscalcaulte()"><strong>&divide;</strong></td>
 </tr>
 </tbody>
 </table>
