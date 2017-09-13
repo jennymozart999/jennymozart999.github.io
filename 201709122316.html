@@ -14,30 +14,30 @@
 .number:hover{background: #D2E9FF;} 
 .function:hover{background: #D2E9FF;} 
 .result{background-color: white; width:80px; font-size: 48px; height:80px; text-align: right; line-height: 38px;
-border:solid 2px black; box-shadow: 1px 3px 3px black;} 
+border:solid 2px black;} 
 @media (min-width:0px) and (max-width:299px) 
 {*{font-size:18px;} 
-.number{height:28px} 
-.function{height:28px;}
-.result{height:28px;}
+.number{height:28px;font-size:18px;} 
+.function{height:28px;font-size:18px;}
+.result{height:28px;font-size:18px;}
 }
 @media (min-width:300px) and (max-width:380px) 
 {*{font-size:25px;} 
-.number{height:50px} 
-.function{height:50px;}
-.result{height:50px;}
+.number{height:50px;font-size:25px;} 
+.function{height:50px;font-size:25px;}
+.result{height:50px;font-size:25px;}
 }
 @media (min-width:381px) and (max-width:430px) 
-{*{font-size:35px;} 
-.number{height:60px} 
-.function{height:60px;}
-.result{height:60px;}
+{*{font-size:28px;} 
+.number{height:60px;font-size:28px;} 
+.function{height:60px;font-size:28px;}
+.result{height:60px;font-size:28px;}
 }
 @media (min-width:431px) and (max-width:499px) 
-{*{font-size:40px;} 
-.number{height:70px} 
-.function{height:70px;}
-.result{height:70px;}
+{*{font-size:35px;} 
+.number{height:70px;font-size:40px;} 
+.function{height:70px;font-size:40px;}
+.result{height:70px;font-size:40px;}
 }
 </style>
 </head>
@@ -46,10 +46,7 @@ border:solid 2px black; box-shadow: 1px 3px 3px black;}
 <br>
 <center><a href="index.html">Back to Homepage</a></center>
 <br>
-<table width="100%" height="100%" style="" border="0;" cellspacing="0;" cellpadding="0;">
-<tbody>
-<tr>
-<td align="center" valign="middle">
+<center>
 <table class="Calc" onClick="calculater()">
 <tbody>
 <tr>
@@ -83,9 +80,6 @@ border:solid 2px black; box-shadow: 1px 3px 3px black;}
 </tr>
 </tbody>
 </table>
-</td>
-</tr>
-</tbody>
-</table>
+</center>
 </body>
 </html>
