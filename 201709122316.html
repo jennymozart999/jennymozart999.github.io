@@ -19,11 +19,12 @@
  text-align:center;
 }
 .number:hover,.function:hover{background: #D2E9FF;} 
-.result{text-align:right;}
+.result{text-align:right;font-family:微软雅黑;}
 #upperhalf
 {
 text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 }
+
 @media (min-width:0px) and (max-width:299px) 
 {
 *{font-size:18px;} 
@@ -79,6 +80,15 @@ var result101="";
 var result102="";
 var result201="";
 var result202="";
+onerror=function(event)
+{
+result101="";
+result102="";
+result201="";
+result202="";
+upperhalf.innerText="0";
+lowerhalf.innerText="输入错误";
+}
   function fun01()
 {
     if(event.srcElement.id=="Calc")
@@ -101,11 +111,12 @@ var result202="";
 	  result101="";
 	  result102="";
 	  result201="";
+	  result202="";
 	 }
 	 else 
 	 {
 	 result102+=event.srcElement.innerText;
-     result101=result201+result102;
+     result101=result202+result102;
 	 upperhalf.innerText=result101;
 	 }
 	}
@@ -115,6 +126,7 @@ var result202="";
 {
     result201=eval(result101);
 	lowerhalf.innerText=result201;
+	result202=result201;
 	result102="";
 	
 }
