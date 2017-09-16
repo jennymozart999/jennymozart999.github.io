@@ -5,7 +5,7 @@
       http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>一个简单的计算器</title>
 <style>
-.Calc{border-spacing:10px; align:center; padding:5px; background-color: pink;}
+.Calc{border-spacing:10px; align:center; padding:5px; background-color:#FF8F59;}
 .number,.function,.result
 {
  background-color: white; 
@@ -19,7 +19,7 @@
  text-align:center;
 }
 .number:hover,.function:hover{background: #D2E9FF;} 
-.result{text-align:right;font-family:微软雅黑;}
+.result{text-align:right;font-family:宋体;}
 #upperhalf
 {
 text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
@@ -60,6 +60,8 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 </style>
 </head>
 <script type="text/javascript">
+
+<!-----禁止Safari上双击放大------->
 var lastTouchEnd = 0; 
 document.documentElement.addEventListener
 (
@@ -75,11 +77,16 @@ document.documentElement.addEventListener
  },
  false
 );
+<!-----禁止双击放大结束------->
 
+<!---------声明变量------------>
 var result101="";
 var result102="";
 var result201="";
 var result202="";
+<!---------声明结束------------->
+
+<!-----输入错误时显示错误信息------->
 onerror=function(event)
 {
 result101="";
@@ -89,6 +96,9 @@ result202="";
 upperhalf.innerText="0";
 lowerhalf.innerText="输入错误";
 }
+<!-----报错结束------->
+
+<!-----把输入的内容累加起来------>
   function fun01()
 {
     if(event.srcElement.id=="Calc")
@@ -122,19 +132,17 @@ lowerhalf.innerText="输入错误";
 	}
 	else {return;}
 }
+<!---------累加结束---------->
+
+<!---------等于的同时用计算结果替换原先的累加内容-------->
   function fun02()
 {
     result201=eval(result101);
 	lowerhalf.innerText=result201;
 	result202=result201;
 	result102="";
-	
 }
-  function fun03(){
-
-}
-	
-
+<!---------计算结果结束--------->
 </script>
 <body onselectstart="return false">
 <h2 align="center">这是一个简单的计算器</h2>
