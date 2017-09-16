@@ -47,6 +47,17 @@ border:solid 2px black;}
 </style>
 </head>
 <script type="text/javascript">
+var lastTouchEnd = 0; 
+document.documentElement.addEventListener('touchend', function (event)
+{
+ var now = Date.now();
+ if (now - lastTouchEnd <= 300) 
+ {
+  event.preventDefault(); 
+ } 
+ lastTouchEnd = now; 
+}, false);
+
 var result101="";
 var result102="";
 var result201="";
