@@ -6,39 +6,51 @@
 <title>一个简单的计算器</title>
 <style>
 .Calc{border-spacing:10px; align:center; padding:5px; background-color: pink;}
-.number{background-color: white; 
- width:80px; font-size: 48px; height:80px; text-align: center; line-height: 38px; 
- border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;display:table-cell;} 
-.function{background-color: white; width:80px; font-size: 48px; height:80px;
- text-align: center; line-height: 38px;  border:solid 2px black; box-shadow: 1px 3px 3px black; cursor: pointer;}
-.number:hover{background: #D2E9FF;} 
-.function:hover{background: #D2E9FF;} 
-.result{background-color: white; width:80px; font-size: 48px; height:80px; text-align: right; line-height: 38px;
-border:solid 2px black;} 
-#upperhalf{text-align:right;font-size:38px;}
+.number,.function,.result
+{
+ background-color: white; 
+ width:80px; height:80px;
+ font-size:48px;line-height:38px; 
+ border:solid 2px black;
+} 
+.number,.function
+{
+ cursor:pointer;display:table-cell;box-shadow:1px 3px 3px black;
+ text-align:center;
+}
+.number:hover,.function:hover{background: #D2E9FF;} 
+.result{text-align:right;}
+#upperhalf
+{
+text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
+}
 @media (min-width:0px) and (max-width:299px) 
-{*{font-size:18px;} 
+{
+*{font-size:18px;} 
 .number{height:28px;width:30px;font-size:20px;} 
 .function{height:28px;width:30px;font-size:20px;}
 .result{height:28px;width:30px;font-size:20px;}
 #upperhalf{font-size:15px;}
 }
 @media (min-width:300px) and (max-width:380px) 
-{*{font-size:25px;} 
+{
+*{font-size:25px;} 
 .number{height:50px;width:40px;font-size:25px;} 
 .function{height:50px;width:40px;font-size:25px;}
 .result{height:50px;width:40px;font-size:25px;}
 #upperhalf{font-size:20px;}
 }
 @media (min-width:381px) and (max-width:430px) 
-{*{font-size:28px;} 
+{
+*{font-size:28px;} 
 .number{height:60px;font-size:28px;} 
 .function{height:60px;font-size:28px;}
 .result{height:60px;font-size:28px;}
 #upperhalf{font-size:23px;}
 }
 @media (min-width:431px) and (max-width:499px) 
-{*{font-size:35px;} 
+{
+*{font-size:35px;} 
 .number{height:70px;font-size:40px;} 
 .function{height:70px;font-size:40px;}
 .result{height:70px;font-size:40px;}
@@ -48,15 +60,20 @@ border:solid 2px black;}
 </head>
 <script type="text/javascript">
 var lastTouchEnd = 0; 
-document.documentElement.addEventListener('touchend', function (event)
-{
- var now = Date.now();
- if (now - lastTouchEnd <= 300) 
+document.documentElement.addEventListener
+(
+ 'touchend', 
+ function (event)
  {
-  event.preventDefault(); 
- } 
- lastTouchEnd = now; 
-}, false);
+  var now = Date.now();
+  if (now - lastTouchEnd <= 300) 
+  {
+   event.preventDefault(); 
+  } 
+  lastTouchEnd = now; 
+ },
+ false
+);
 
 var result101="";
 var result102="";
