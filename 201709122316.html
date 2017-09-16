@@ -79,7 +79,8 @@ var result101="";
 var result102="";
 var result201="";
 var result202="";
-  function fun01(){
+  function fun01()
+{
     if(event.srcElement.id=="Calc")
 	{return;}
 	if(event.srcElement.id=="upperhalf")
@@ -88,29 +89,30 @@ var result202="";
 	{return;}
     if(event.srcElement.innerText!="=")
     {
-	if(lowerhalf.innerText=="0")
-	{
-	  result101+=event.srcElement.innerText;
-	  upperhalf.innerText=result101;
-	} 
-	else if(event.srcElement.innerText=="C")
-    {
-	 upperhalf.innerText="0";
-	 lowerhalf.innerText="0";
-	 result101="";
-	 result102="";
-	 result201="";
-	}
-	else 
-	{
-	result102+=event.srcElement.innerText;
-    result101=result201+result102;
-	upperhalf.innerText=result101;
-	}
+	 if(result201="")
+	 {
+	   result101+=event.srcElement.innerText;
+	   upperhalf.innerText=result101;
+	 } 
+	 else if(event.srcElement.innerText=="C")
+     {
+	  upperhalf.innerText="0";
+	  lowerhalf.innerText="0";
+	  result101="";
+	  result102="";
+	  result201="";
+	 }
+	 else 
+	 {
+	 result102+=event.srcElement.innerText;
+     result101=result201+result102;
+	 upperhalf.innerText=result101;
+	 }
 	}
 	else {return;}
 }
-  function fun02(){
+  function fun02()
+{
     result201=eval(result101);
 	lowerhalf.innerText=result201;
 	result102="";
@@ -135,41 +137,42 @@ var result202="";
 </center>
 <br>
 <center>
-<table class="Calc" id="Calc" onClick="fun01()">
-<tbody>
-<tr>
-<td colspan="5" class="result"><div id="upperhalf">0</div>
-<div id="lowerhalf">0</div>
-</td>
-</tr>
-<tr>
-<td class="number">1</td>
-<td class="number">2</td>
-<td class="number">3</td>
-<td class="function"><strong>+</strong></td>
-<td class="function" id="clear">C</td>
-</tr>
-<tr>
-<td class="number">4</td>
-<td class="number">5</td>
-<td class="number">6</td>
-<td class="function"><strong>-</strong></td>
-<td rowspan="3" class="function" id="equals" onClick="fun02()">=</td>
-</tr>
-<tr>
-<td class="number">7</td>
-<td class="number">8</td>
-<td class="number">9</td>
-<td class="function" id="multiply" onClick="fun03()">*</td>
-</tr>
-<tr>
-<td class="function" id=""><strong>+</strong>/<strong>-</strong></td>
-<td class="number">0</td>
-<td class="number"><strong>.</strong></td>
-<td class="function"><strong>/</strong></td>
-</tr>
-</tbody>
-</table>
+ <table class="Calc" id="Calc" onClick="fun01()">
+  <tbody>
+   <tr>
+    <td colspan="5" class="result">
+	 <div id="upperhalf">0</div>
+     <div id="lowerhalf">0</div>
+    </td>
+   </tr>
+   <tr>
+    <td class="number">1</td>
+    <td class="number">2</td>
+    <td class="number">3</td>
+    <td class="function"><strong>+</strong></td>
+    <td class="function" id="clear">C</td>
+   </tr>
+   <tr>
+    <td class="number">4</td>
+    <td class="number">5</td>
+    <td class="number">6</td>
+    <td class="function"><strong>-</strong></td>
+    <td rowspan="3" class="function" id="equals" onClick="fun02()">=</td>
+   </tr>
+   <tr>
+    <td class="number">7</td>
+    <td class="number">8</td>
+    <td class="number">9</td>
+    <td class="function" id="multiply" onClick="fun03()">*</td>
+   </tr>
+   <tr>
+    <td class="function" id=""><strong>+</strong>/<strong>-</strong></td>
+    <td class="number">0</td>
+    <td class="number"><strong>.</strong></td>
+    <td class="function"><strong>/</strong></td>
+   </tr>
+  </tbody>
+ </table>
 </center>
 </body>
 </html>
