@@ -5,6 +5,7 @@
       http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>一个简单的计算器</title>
 <style>
+span,a{font-size:38px;}
 .Calc{border-spacing:10px; align:center; padding:5px; background-color:#FF8F59;}
 .number,.function,.result
 {
@@ -28,33 +29,25 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 @media (min-width:0px) and (max-width:299px) 
 {
 *{font-size:18px;} 
-.number{height:28px;width:30px;font-size:20px;} 
-.function{height:28px;width:30px;font-size:20px;}
-.result{height:28px;width:30px;font-size:20px;}
+.number,.function,.result{height:28px;width:30px;font-size:20px;} 
 #upperhalf{font-size:15px;}
 }
 @media (min-width:300px) and (max-width:380px) 
 {
 *{font-size:25px;} 
-.number{height:50px;width:40px;font-size:25px;} 
-.function{height:50px;width:40px;font-size:25px;}
-.result{height:50px;width:40px;font-size:25px;}
+.number,.function,.result{height:50px;width:40px;font-size:25px;} 
 #upperhalf{font-size:20px;}
 }
 @media (min-width:381px) and (max-width:430px) 
 {
 *{font-size:28px;} 
-.number{height:60px;font-size:28px;} 
-.function{height:60px;font-size:28px;}
-.result{height:60px;font-size:28px;}
+.number,.function,.result{height:60px;font-size:28px;} 
 #upperhalf{font-size:23px;}
 }
 @media (min-width:431px) and (max-width:499px) 
 {
 *{font-size:35px;} 
-.number{height:70px;font-size:40px;} 
-.function{height:70px;font-size:40px;}
-.result{height:70px;font-size:40px;}
+.number,.function,.result{height:70px;font-size:40px;} 
 #upperhalf{font-size:30px;}
 }
 </style>
@@ -69,7 +62,7 @@ document.documentElement.addEventListener
  function (event)
  {
   var now = Date.now();
-  if (now - lastTouchEnd <= 400) 
+  if (now - lastTouchEnd <= 350) 
   {
    event.preventDefault(); 
   } 
@@ -83,7 +76,8 @@ document.documentElement.addEventListener
 var result101="";
 var result102="";
 var result201="";
-var result202="";
+var Ans01="";
+var re=/.*[0-9]/
 <!---------声明结束------------->
 
 <!-----输入错误时显示错误信息------->
@@ -92,7 +86,7 @@ onerror=function(event)
 result101="";
 result102="";
 result201="";
-result202="";
+Ans01="";
 upperhalf.innerText="0";
 lowerhalf.innerText="输入错误";
 }
@@ -108,30 +102,32 @@ lowerhalf.innerText="输入错误";
 	if(event.srcElement.id=="lowerhalf")
 	{return;}
     if(event.srcElement.innerText!="=")
-    {
+       {
 	 if(result201="")
 	 {
 	   result101+=event.srcElement.innerText;
 	   upperhalf.innerText=result101;
 	 } 
 	 else if(event.srcElement.innerText=="C")
-     {
+         {
 	  upperhalf.innerText="0";
 	  lowerhalf.innerText="0";
 	  result101="";
 	  result102="";
 	  result201="";
-	  result202="";
+	  Ans01="";
 	 }
 	 else 
 	 {
+
 	 result102+=event.srcElement.innerText;
-     result101=result202+result102;
+     result101=Ans01+result102;
 	 upperhalf.innerText=result101;
 	 }
-	}
+       }
 	else {return;}
 }
+
 <!---------累加结束---------->
 
 <!---------等于的同时用计算结果替换原先的累加内容-------->
@@ -139,19 +135,19 @@ lowerhalf.innerText="输入错误";
 {
     result201=eval(result101);
 	lowerhalf.innerText=result201;
-	result202=result201;
+	Ans01=result201;
 	result102="";
 }
 <!---------计算结果结束--------->
 </script>
 <body onselectstart="return false">
-<h2 align="center">这是一个简单的计算器</h2>
+<h2 align="center" style="font-size:38px;">这是一个简单的计算器</h2>
 <br>
 <center><a href="index.html">Back to Homepage</a></center>
 <center>
       <span style="font-color:black;color:black;">
             <a href="https://jennymozart999.github.io/#/tag/MyWork">#MyWork</a>
-            &nbsp
+            &nbsp;
             <a href="https://jennymozart999.github.io/#/tag/All">#All</a>
       </span>
 </center>
