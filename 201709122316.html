@@ -25,30 +25,35 @@ h2,a,span{font-size:38px;}
 {
 text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 }
+#Back{font-size:30px;}
 
 @media (min-width:0px) and (max-width:299px) 
 {
 h2,a,span{font-size:18px;} 
 .number,.function,.result{height:28px;width:30px;font-size:20px;} 
 #upperhalf{font-size:15px;}
+#Back{font-size:10px;}
 }
 @media (min-width:300px) and (max-width:380px) 
 {
 h2,a,span{font-size:25px;} 
 .number,.function,.result{height:50px;width:40px;font-size:25px;} 
 #upperhalf{font-size:20px;}
+#Back{font-size:18px;}
 }
 @media (min-width:381px) and (max-width:430px) 
 {
 h2,a,span{font-size:28px;} 
 .number,.function,.result{height:60px;font-size:28px;} 
 #upperhalf{font-size:23px;}
+#Back{font-size:15px;}
 }
 @media (min-width:431px) and (max-width:499px) 
 {
 h2,a,span{font-size:35px;} 
 .number,.function,.result{height:70px;font-size:40px;} 
 #upperhalf{font-size:30px;}
+#Back{font-size:20px;}
 }
 </style>
 </head>
@@ -77,7 +82,9 @@ var result101="";
 var result102="";
 var result201="";
 var Ans01="";
-var re=/.*[0-9]/
+var reg01=/^\d/;
+var reg02=/^\./;
+var ThisKey="";
 <!---------声明结束------------->
 
 <!-----输入错误时显示错误信息------->
@@ -101,30 +108,46 @@ lowerhalf.innerText="输入错误";
 	{return;}
 	if(event.srcElement.id=="lowerhalf")
 	{return;}
+	if(event.srcElement.id=="Back")
+	{return;}
     if(event.srcElement.innerText!="=")
-       {
-	 if(result201="")
-	 {
-	   result101+=event.srcElement.innerText;
-	   upperhalf.innerText=result101;
-	 } 
-	 else if(event.srcElement.innerText=="C")
+     {
+	   if(event.srcElement.innerText=="C")
          {
-	  upperhalf.innerText="0";
-	  lowerhalf.innerText="0";
-	  result101="";
-	  result102="";
-	  result201="";
-	  Ans01="";
-	 }
-	 else 
-	 {
+	     upperhalf.innerText="0";
+	     lowerhalf.innerText="0";
+	     result101="";
+         result102="";
+    	 result201="";
+    	 Ans01="";
+	     }
+	   else 
+	     {
+		 result102+=event.srcElement.innerText;
+		 if(result102.match(reg01) ||
+		    result102.match(reg02)
+			)
+		   {
+		    if(Ans01=="")
+		      {			  
+		      result101=result102;
+		      upperhalf.innerText=result101;
+		      }
+		    else
+		      {
+			  Ans01="";
+		      result101=Ans01+result102;
+		      upperhalf.innerText=result101;
+		      }
+		   }
+		 else
+		   {
+		   result101=Ans01+result102;
+		   upperhalf.innerText=result101;
+		   }
+	     }
 
-	 result102+=event.srcElement.innerText;
-     result101=Ans01+result102;
-	 upperhalf.innerText=result101;
 	 }
-       }
 	else {return;}
 }
 
@@ -139,6 +162,23 @@ lowerhalf.innerText="输入错误";
 	result102="";
 }
 <!---------计算结果结束--------->
+
+<!---------退格开始-------->
+
+  function fun03()
+{
+    if(result102.length > 1)
+	{
+      strEntry=result102;
+	  var NewEntry=strEntry.substring(0,result102.length-1);
+	  result102=NewEntry;
+	  result101=Ans01+result102;
+	  upperhalf.innerText=result101;
+	}
+	else
+	{return;}
+}
+<!---------退格结束--------->
 </script>
 <body onselectstart="return false">
 <h2 align="center">这是一个简单的计算器</h2>
@@ -179,10 +219,10 @@ lowerhalf.innerText="输入错误";
     <td class="number">7</td>
     <td class="number">8</td>
     <td class="number">9</td>
-    <td class="function" id="multiply" onClick="fun03()">*</td>
+    <td class="function">*</td>
    </tr>
    <tr>
-    <td class="function" id=""><strong>+</strong>/<strong>-</strong></td>
+    <td class="function" id="Back" onClick="fun03()">Back</td>
     <td class="number">0</td>
     <td class="number"><strong>.</strong></td>
     <td class="function"><strong>/</strong></td>
