@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"
       http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>一个简单的计算器</title>
+<title>一个简单的计算器(完成版)</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 <style>
@@ -23,6 +23,7 @@ h2,a,span{font-size:38px;}
 }
 .number:hover,.function:hover{background: #D2E9FF;} 
 .result{text-align:right;font-family:宋体;}
+.mainbody{width:600px;}
 #upperhalf
 {
 text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
@@ -33,6 +34,7 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 {
 h2,a,span{font-size:18px;} 
 .number,.function,.result{height:28px;width:30px;font-size:20px;} 
+.mainbody{width:100%;}
 #upperhalf{font-size:15px;}
 #Back{font-size:10px;}
 }
@@ -40,6 +42,7 @@ h2,a,span{font-size:18px;}
 {
 h2,a,span{font-size:25px;} 
 .number,.function,.result{height:50px;width:40px;font-size:25px;} 
+.mainbody{width:100%;}
 #upperhalf{font-size:20px;}
 #Back{font-size:18px;}
 }
@@ -47,6 +50,7 @@ h2,a,span{font-size:25px;}
 {
 h2,a,span{font-size:28px;} 
 .number,.function,.result{height:60px;font-size:28px;} 
+.mainbody{width:100%;}
 #upperhalf{font-size:23px;}
 #Back{font-size:15px;}
 }
@@ -54,13 +58,14 @@ h2,a,span{font-size:28px;}
 {
 h2,a,span{font-size:35px;} 
 .number,.function,.result{height:70px;font-size:40px;} 
+.mainbody{width:100%;}
 #upperhalf{font-size:30px;}
 #Back{font-size:20px;}
 }
-@media (max-width:601px)
+@media (min-width:500px) and (max-width:600px)
 {
-.disqus{width:100%;}
-}
+.mainbody{width:100%;}
+} 
 </style>
 </head>
 <script type="text/javascript">
@@ -191,6 +196,7 @@ lowerhalf.innerText="输入错误";
 <br>
 <center><a href="index.html">Back to Homepage</a></center>
 <center>
+
       <span style="font-color:black;color:black;">
             <a href="https://jennymozart999.github.io/#/tag/MyWork">#MyWork</a>
             &nbsp;
@@ -235,7 +241,10 @@ lowerhalf.innerText="输入错误";
    </tr>
   </tbody>
  </table>
-<div id="disqus_thread" class="disqus" style="width:600px;"></div>
+</center>
+<center>
+<div class="mainbody">
+<div id="disqus_thread"></div>
 <script>
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -254,6 +263,8 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 </center>
+
 	</body>
 </html>
