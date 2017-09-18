@@ -1,11 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"
+<meta name="viewport" 
+      content="width=device-width, initial-scale=1.0,      
+      maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"
       http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>一个简单的计算器</title>
-    <link rel="shortcut icon" href="/static/favicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/main.css" />
+<meta name="Keywords" content="blog"/>
+<meta name="Description" content="blog"/>
+<title>Jenny's blog</title>
+<link rel="shortcut icon" href="/static/favicon.png"/>
+<link rel="stylesheet" type="text/css" href="/main.css" />
 <style>
 h2,a,span{font-size:38px;}
 .Calc{border-spacing:10px; align:center; padding:5px; background-color:#FF8F59;}
@@ -78,7 +82,7 @@ document.documentElement.addEventListener
  function (event)
  {
   var now = Date.now();
-  if (now - lastTouchEnd <= 350) 
+  if (now - lastTouchEnd <= 400) 
   {
    event.preventDefault(); 
   } 
@@ -113,14 +117,6 @@ lowerhalf.innerText="输入错误";
 <!-----把输入的内容累加起来------>
   function fun01()
 {
-    if(event.srcElement.id=="Calc")
-	{return;}
-	if(event.srcElement.id=="upperhalf")
-	{return;}
-	if(event.srcElement.id=="lowerhalf")
-	{return;}
-	if(event.srcElement.id=="Back")
-	{return;}
     if(event.srcElement.innerText!="=")
      {
 	   if(event.srcElement.innerText=="C")
@@ -198,8 +194,7 @@ lowerhalf.innerText="输入错误";
 {
     if(result101.length > 1)
 	{
-      strEntry=result101;
-	  var NewEntry=strEntry.substring(0,result101.length-1);
+	  var NewEntry=result101.substring(0,result101.length-1);
 	  result101=NewEntry;
 	  upperhalf.innerText=result101;
 	}
@@ -216,20 +211,35 @@ lowerhalf.innerText="输入错误";
 <!---------退格结束--------->
 </script>
 <body onselectstart="return false">
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	   <h1>
+       <a href="/" id="title"></a>
+	</h1>
+    </div>
+<div class="entry" id="main">
+<!-- content -->
 <h2 align="center">这是一个简单的计算器</h2>
 <br>
 <center><a href="index.html">Back to Homepage</a></center>
 <center>
 
       <span style="font-color:black;color:black;">
-            <a href="https://jennymozart999.github.io/#/tag/MyWork">#MyWork</a>
+            <a href="/#/tag/MyWork">#MyWork</a>
             &nbsp;
-            <a href="https://jennymozart999.github.io/#/tag/All">#All</a>
+            <a href="/#/tag/All">#All</a>
       </span>
 </center>
 <br>
 <center>
- <table class="Calc" id="Calc" onClick="fun01()">
+ <table class="Calc" id="Calc">
   <tbody>
    <tr>
     <td colspan="5" class="result">
@@ -238,57 +248,102 @@ lowerhalf.innerText="输入错误";
     </td>
    </tr>
    <tr>
-    <td class="number">1</td>
-    <td class="number">2</td>
-    <td class="number">3</td>
-    <td class="function"><strong>+</strong></td>
-    <td class="function" id="clear">C</td>
+    <td class="number" onClick="fun01()">1</td>
+    <td class="number" onClick="fun01()">2</td>
+    <td class="number" onClick="fun01()">3</td>
+    <td class="function" onClick="fun01()"><strong>+</strong></td>
+    <td class="function" id="clear"  onClick="fun01()">C</td>
    </tr>
    <tr>
-    <td class="number">4</td>
-    <td class="number">5</td>
-    <td class="number">6</td>
-    <td class="function"><strong>-</strong></td>
+    <td class="number"  onClick="fun01()">4</td>
+    <td class="number" onClick="fun01()">5</td>
+    <td class="number" onClick="fun01()">6</td>
+    <td class="function" onClick="fun01()"><strong>-</strong></td>
     <td rowspan="3" class="function" id="equals" onClick="fun02()">=</td>
    </tr>
    <tr>
-    <td class="number">7</td>
-    <td class="number">8</td>
-    <td class="number">9</td>
-    <td class="function">*</td>
+    <td class="number" onClick="fun01()">7</td>
+    <td class="number" onClick="fun01()">8</td>
+    <td class="number" onClick="fun01()">9</td>
+    <td class="function"  onClick="fun01()">*</td>
    </tr>
    <tr>
     <td class="function" id="Back" onClick="fun03()">Back</td>
-    <td class="number">0</td>
-    <td class="number"><strong>.</strong></td>
-    <td class="function"><strong>/</strong></td>
+    <td class="number" onClick="fun01()">0</td>
+    <td class="number" onClick="fun01()"><strong>.</strong></td>
+    <td class="function" onClick="fun01()"><strong>/</strong></td>
    </tr>
   </tbody>
  </table>
 </center>
+<!-- content end -->
+</div>
 <center>
 <div class="mainbody">
 <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://zombiephan.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </center>
+</div>
 
-	</body>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "201708091230.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
 </html>
