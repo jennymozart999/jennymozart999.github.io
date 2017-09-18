@@ -57,6 +57,10 @@ h2,a,span{font-size:35px;}
 #upperhalf{font-size:30px;}
 #Back{font-size:20px;}
 }
+@media (max-width:601px)
+{
+.disqus{width:100%;}
+}
 </style>
 </head>
 <script type="text/javascript">
@@ -231,7 +235,7 @@ lowerhalf.innerText="输入错误";
    </tr>
   </tbody>
  </table>
-<div id="disqus_thread" style="width:600px;"></div>
+<div id="disqus_thread" class="disqus" style="width:600px;"></div>
 <script>
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
