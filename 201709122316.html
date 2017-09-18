@@ -82,7 +82,7 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 </div>
 <div class="wrap-header">
 	<h1>
-    <a href="/" id="title" align="left">Jenny's blog</a>
+    <a href="/" id="title" align="center">Jenny's blog</a>
 	</h1>
 </div>
 <div class="mainbody">
@@ -160,7 +160,27 @@ s.setAttribute('data-timestamp', +new Date());
 </center>
 <script type="text/javascript">
 
-<!-----禁止Safari上双击放大------->
+<!-----禁止Safari上双击放大02------->
+window.onload=function () 
+   {  
+        document.addEventListener('touchstart',function (event) {  
+            if(event.touches.length>1){  
+                event.preventDefault();  
+            }  
+        })  
+        var lastTouchEnd=0;  
+        document.addEventListener('touchend',function (event) {  
+            var now=(new Date()).getTime();  
+            if(now-lastTouchEnd<=300){  
+                event.preventDefault();  
+            }  
+            lastTouchEnd=now;  
+        },false)  
+    } 
+<!-----禁止放大02結束------->
+
+/*
+<!-----禁止Safari上双击放大01------->
 var lastTouchEnd = 0; 
 document.documentElement.addEventListener
 (
@@ -177,6 +197,7 @@ document.documentElement.addEventListener
  false
 );
 <!-----禁止双击放大结束------->
+*/
 
 <!---------声明变量------------>
 var result101="";
