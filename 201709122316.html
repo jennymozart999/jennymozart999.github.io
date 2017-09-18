@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"
       http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>一个简单的计算器(完成版)</title>
+<title>一个简单的计算器</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 <style>
@@ -90,7 +90,7 @@ document.documentElement.addEventListener
 
 <!---------声明变量------------>
 var result101="";
-var result102="";
+var result101="";
 var result201="";
 var Ans01="";
 var reg01=/^\d/;
@@ -102,7 +102,7 @@ var ThisKey="";
 onerror=function(event)
 {
 result101="";
-result102="";
+result101="";
 result201="";
 Ans01="";
 upperhalf.innerText="0";
@@ -128,32 +128,32 @@ lowerhalf.innerText="输入错误";
 	     upperhalf.innerText="0";
 	     lowerhalf.innerText="0";
 	     result101="";
-         result102="";
+         result101="";
     	 result201="";
     	 Ans01="";
 	     }
 	   else 
 	     {
-		 result102+=event.srcElement.innerText;
-		 if(result102.match(reg01) ||
-		    result102.match(reg02)
+		 result101+=event.srcElement.innerText;
+		 if(result101.match(reg01) ||
+		    result101.match(reg02)
 			)
 		   {
 		    if(Ans01=="")
 		      {			  
-		      result101=result102;
+		      result101=result101;
 		      upperhalf.innerText=result101;
 		      }
 		    else
 		      {
 			  Ans01="";
-		      result101=Ans01+result102;
+		      result101=Ans01+result101;
 		      upperhalf.innerText=result101;
 		      }
 		   }
 		 else
 		   {
-		   result101=Ans01+result102;
+		   result101=Ans01+result101;
 		   upperhalf.innerText=result101;
 		   }
 	     }
@@ -170,24 +170,48 @@ lowerhalf.innerText="输入错误";
     result201=eval(result101);
 	lowerhalf.innerText=result201;
 	Ans01=result201;
-	result102="";
+	result101="";
 }
 <!---------计算结果结束--------->
+
+/*
+<!--------退格开始-------->
+  function fun03()
+{
+    if(result101.length > 1)
+	{
+      strEntry=result101;
+	  var NewEntry=strEntry.substring(0,result101.length-1);
+	  result101=NewEntry;
+	  result101=Ans01+result101;
+	  upperhalf.innerText=result101;
+	}
+	else
+	{return;}
+}
+<!---------退格结束--------->
+*/
 
 <!---------退格开始-------->
 
   function fun03()
 {
-    if(result102.length > 1)
+    if(result101.length > 1)
 	{
-      strEntry=result102;
-	  var NewEntry=strEntry.substring(0,result102.length-1);
-	  result102=NewEntry;
-	  result101=Ans01+result102;
+      strEntry=result101;
+	  var NewEntry=strEntry.substring(0,result101.length-1);
+	  result101=NewEntry;
 	  upperhalf.innerText=result101;
 	}
 	else
-	{return;}
+	{  if(result101.length == 1)
+	     {
+		   result101="";
+		   upperhalf.innerText="0";
+		 }
+		else
+		 {return;}
+	  }
 }
 <!---------退格结束--------->
 </script>
