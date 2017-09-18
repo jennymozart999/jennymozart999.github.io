@@ -25,7 +25,12 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-##提取当前工作表所在的文件夹内的所有文件的文件名，取得eBay店铺名，计算该店铺名在A:A列里面出现的次数
+##提取当前工作表所在的文件夹内的所有文件的文件名
+
+新建空白记事本文件，输入<br>
+DIR *.* /B > 文件名称列表.txt<br>
+扩展名改成bat，放进要提取的文件夹里面，双击执行<br>
+完成~<br>
 
 <pre><code>Sub GetNameAndCount()
 Mypath = ActiveWorkbook.Path & "\"
@@ -79,6 +84,12 @@ End Sub
 <!-- content -->
 <h2 id="ebayaa">提取当前工作表所在的文件夹内的所有文件的文件名，取得eBay店铺名，计算该店铺名在A:A列里面出现的次数</h2>
 
+<p>
+新建空白记事本文件，输入<br>
+DIR *.* /B > 文件名称列表.txt<br>
+扩展名改成bat，放进要提取的文件夹里面，双击执行<br>
+完成~<br>
+</p>
 <pre><code>Sub GetNameAndCount()
 Mypath = ActiveWorkbook.Path &amp; "\"
 MyName = Dir(Mypath, vbDirectory)
