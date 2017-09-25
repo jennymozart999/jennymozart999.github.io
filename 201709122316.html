@@ -112,30 +112,30 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
     </td>
    </tr>
    <tr>
-    <td class="number" onClick="fun01()">1</td>
-    <td class="number" onClick="fun01()">2</td>
-    <td class="number" onClick="fun01()">3</td>
-    <td class="function" onClick="fun01()"><strong>+</strong></td>
-    <td class="function" id="clear"  onClick="fun01()">C</td>
+    <td class="number" onclick="fun01()">1</td>
+    <td class="number" onclick="fun01()">2</td>
+    <td class="number" onclick="fun01()">3</td>
+    <td class="function" onclick="fun01()"><strong>+</strong></td>
+    <td class="function" onclick="fun04()">C</td>
    </tr>
    <tr>
-    <td class="number"  onClick="fun01()">4</td>
-    <td class="number" onClick="fun01()">5</td>
-    <td class="number" onClick="fun01()">6</td>
-    <td class="function" onClick="fun01()"><strong>-</strong></td>
-    <td rowspan="3" class="function" id="equals" onClick="fun02()">=</td>
+    <td class="number"  onclick="fun01()">4</td>
+    <td class="number" onclick="fun01()">5</td>
+    <td class="number" onclick="fun01()">6</td>
+    <td class="function" onclick="fun01()"><strong>-</strong></td>
+    <td rowspan="3" class="function" onclick="fun02()">=</td>
    </tr>
    <tr>
-    <td class="number" onClick="fun01()">7</td>
-    <td class="number" onClick="fun01()">8</td>
-    <td class="number" onClick="fun01()">9</td>
-    <td class="function"  onClick="fun01()">*</td>
+    <td class="number" onclick="fun01()">7</td>
+    <td class="number" onclick="fun01()">8</td>
+    <td class="number" onclick="fun01()">9</td>
+    <td class="function"  onclick="fun01()">*</td>
    </tr>
    <tr>
-    <td class="function" id="Back" onClick="fun03()">Back</td>
-    <td class="number" onClick="fun01()">0</td>
-    <td class="number" onClick="fun01()"><strong>.</strong></td>
-    <td class="function" onClick="fun01()"><strong>/</strong></td>
+    <td class="function" onclick="fun03()" id="Back">Back</td>
+    <td class="number" onclick="fun01()">0</td>
+    <td class="number" onclick="fun01()"><strong>.</strong></td>
+    <td class="function" onclick="fun01()"><strong>/</strong></td>
    </tr>
   </tbody>
  </table>
@@ -147,7 +147,9 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
 <script>
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:
+ https://disqus.com/admin/universalcode/#configuration-variables
+*/
 /*
 var disqus_config = function () {
 this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
@@ -167,7 +169,7 @@ s.setAttribute('data-timestamp', +new Date());
 <script type="text/javascript">
 
 
-<!-----禁止Safari上双击放大01------->
+<!-----禁止Safari上双击放大------->
 var lastTouchEnd = 0; 
 document.documentElement.addEventListener
 (
@@ -188,20 +190,17 @@ document.documentElement.addEventListener
 
 <!---------声明变量------------>
 var result101="";
-var result101="";
-var result201="";
+var Adding01="";
 var Ans01="";
-var reg01=/^\d/;//正则表达，字符串的第一个字符是0-9的整数
-var reg02=/^\./;//正则表达，字符串的第一个字符是小数点
-var ThisKey="";
+var reg01=/^\d|^\./;//正则表达，字符串的第一个字符是0-9的整数*或者*小数点
+//var reg02=/^\./;//正则表达，字符串的第一个字符是小数点
 <!---------声明结束------------->
 
 <!-----输入错误时显示错误信息------->
 onerror=function(event)
 {
 result101="";
-result101="";
-result201="";
+Adding01="";
 Ans01="";
 upperhalf.innerText="0";
 lowerhalf.innerText="输入错误";
@@ -211,45 +210,27 @@ lowerhalf.innerText="输入错误";
 <!-----把输入的内容累加起来------>
   function fun01()
 {
-    if(event.srcElement.innerText!="=")
-     {
-	   if(event.srcElement.innerText=="C")
-         {
-	     upperhalf.innerText="0";
-	     lowerhalf.innerText="0";
-	     result101="";
-         result101="";
-    	 result201="";
-    	 Ans01="";
-	     }
-	   else 
-	     {
-		 result101+=event.srcElement.innerText;
-		 if(result101.match(reg01) ||
-		    result101.match(reg02)
-			)
-		   {
-		    if(Ans01=="")
-		      {			  
-		      result101=result101;
-		      upperhalf.innerText=result101;
-		      }
-		    else
-		      {
-			  Ans01="";
-		      result101=Ans01+result101;
-		      upperhalf.innerText=result101;
-		      }
-		   }
-		 else
-		   {
-		   result101=Ans01+result101;
-		   upperhalf.innerText=result101;
-		   }
-	     }
-
-	 }
-	else {return;}
+	Adding01+=event.srcElement.innerText;
+	if(Adding01.match(reg01)
+	  )
+	{
+		if(Ans01=="")
+		{			  
+		result101=Adding01;
+		upperhalf.innerText=result101;
+		}
+	    else
+		{
+        Ans01="";
+		result101=Ans01+Adding01;
+		upperhalf.innerText=result101;
+		}
+	}
+    else
+	{
+	result101=Ans01+Adding01;
+	upperhalf.innerText=result101;
+	}
 }
 
 <!---------累加结束---------->
@@ -257,10 +238,10 @@ lowerhalf.innerText="输入错误";
 <!---------等于的同时用计算结果替换原先的累加内容-------->
   function fun02()
 {
-    result201=eval(result101);
-	lowerhalf.innerText=result201;
-	Ans01=result201;
+    Ans01=eval(result101);
+	lowerhalf.innerText=Ans01;
 	result101="";
+	Adding01="";
 }
 <!---------计算结果结束--------->
 
@@ -270,32 +251,17 @@ lowerhalf.innerText="输入错误";
 {
     if(result101.length > 1)
 	{
-      strEntry=result101;
-	  var NewEntry=strEntry.substring(0,result101.length-1);
-	  result101=NewEntry;
-	  result101=Ans01+result101;
-	  upperhalf.innerText=result101;
-	}
-	else
-	{return;}
-}
-<!---------退格结束--------->
-*/
-
-<!---------退格开始-------->
-
-  function fun03()
-{
-    if(result101.length > 1)
-	{
-	  var NewEntry=result101.substring(0,result101.length-1);
-	  result101=NewEntry;
+	  var NewResult=result101.substring(0,result101.length-1);
+	  var NewAdding=Adding01.substring(0,Adding01.length-1);
+	  result101=NewResult;
+	  Adding01=NewAdding;
 	  upperhalf.innerText=result101;
 	}
 	else
 	{  if(result101.length == 1)
 	     {
 		   result101="";
+		   Adding01="";
 		   upperhalf.innerText="0";
 		   lowerhalf.innerText="0";
 		 }
@@ -304,6 +270,42 @@ lowerhalf.innerText="输入错误";
 	  }
 }
 <!---------退格结束--------->
+*/
+
+
+<!---------退格开始-------->
+
+  function fun03()
+{
+    if(result101.length > 1)
+	{
+	var NewResult=result101.substring(0,result101.length-1);
+	var NewAdding=Adding01.substring(0,Adding01.length-1);
+	result101=NewResult;
+	Adding01=NewAdding;
+	upperhalf.innerText=result101;
+	}
+	else
+	{  
+	result101="";
+	Adding01="";
+	Ans01="";
+	upperhalf.innerText="0";
+	lowerhalf.innerText="0";
+	}
+}
+<!---------退格结束--------->
+
+<!---------画面清除开始-------->
+  function fun04()
+{
+	result101="";
+	Adding01="";
+	Ans01="";
+	upperhalf.innerText="0";
+	lowerhalf.innerText="0";
+}
+<!---------清除结束--------->
 </script>
 	</body>
 </html>
