@@ -32,10 +32,10 @@ body{width:600px;margin:0 auto;overflow-x:hidden;}
 .number,.function
 {
  cursor:pointer;display:table-cell;box-shadow:1px 3px 3px black;
- text-align:center;
+ text-align:center;font-family: Times New Roman;
 }
 .number:hover,.function:hover{background: #D2E9FF;} 
-.result{text-align:right;font-family:宋体;}
+.result{text-align:right;font-family:Times New Roman;}
 #upperhalf
 {
 text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
@@ -112,30 +112,30 @@ text-align:right;font-size:38px;word-wrap:break-word;word-break:break-all;
     </td>
    </tr>
    <tr>
-    <td class="number" onclick="fun01()">1</td>
-    <td class="number" onclick="fun01()">2</td>
-    <td class="number" onclick="fun01()">3</td>
-    <td class="function" onclick="fun01()"><strong>+</strong></td>
-    <td class="function" onclick="fun04()">C</td>
+    <td class="number" onclick="calc01()">1</td>
+    <td class="number" onclick="calc01()">2</td>
+    <td class="number" onclick="calc01()">3</td>
+    <td class="function" onclick="calc01()"><strong>+</strong></td>
+    <td class="function" onclick="clear01()">C</td>
    </tr>
    <tr>
-    <td class="number"  onclick="fun01()">4</td>
-    <td class="number" onclick="fun01()">5</td>
-    <td class="number" onclick="fun01()">6</td>
-    <td class="function" onclick="fun01()"><strong>-</strong></td>
-    <td rowspan="3" class="function" onclick="fun02()">=</td>
+    <td class="number"  onclick="calc01()">4</td>
+    <td class="number" onclick="calc01()">5</td>
+    <td class="number" onclick="calc01()">6</td>
+    <td class="function" onclick="calc01()"><strong>-</strong></td>
+    <td rowspan="3" class="function" onclick="equals01()">=</td>
    </tr>
    <tr>
-    <td class="number" onclick="fun01()">7</td>
-    <td class="number" onclick="fun01()">8</td>
-    <td class="number" onclick="fun01()">9</td>
-    <td class="function"  onclick="fun01()">*</td>
+    <td class="number" onclick="calc01()">7</td>
+    <td class="number" onclick="calc01()">8</td>
+    <td class="number" onclick="calc01()">9</td>
+    <td class="function"  onclick="calc01()">*</td>
    </tr>
    <tr>
-    <td class="function" onclick="fun03()" id="Back">Back</td>
-    <td class="number" onclick="fun01()">0</td>
-    <td class="number" onclick="fun01()"><strong>.</strong></td>
-    <td class="function" onclick="fun01()"><strong>/</strong></td>
+    <td class="function" onclick="back01()" id="Back">Back</td>
+    <td class="number" onclick="calc01()">0</td>
+    <td class="number" onclick="calc01()"><strong>.</strong></td>
+    <td class="function" onclick="calc01()"><strong>/</strong></td>
    </tr>
   </tbody>
  </table>
@@ -208,7 +208,7 @@ lowerhalf.innerText="输入错误";
 <!-----报错结束------->
 
 <!-----把输入的内容累加起来------>
-  function fun01()
+  function calc01()
 {
 	Adding01+=event.srcElement.innerText;
 	if(Adding01.match(reg01)
@@ -236,7 +236,7 @@ lowerhalf.innerText="输入错误";
 <!---------累加结束---------->
 
 <!---------等于的同时用计算结果替换原先的累加内容-------->
-  function fun02()
+  function equals01()
 {
     Ans01=eval(result101);
 	lowerhalf.innerText=Ans01;
@@ -247,7 +247,7 @@ lowerhalf.innerText="输入错误";
 
 /*
 <!--------退格开始-------->
-  function fun03()
+  function back01()
 {
     if(result101.length > 1)
 	{
@@ -275,9 +275,9 @@ lowerhalf.innerText="输入错误";
 
 <!---------退格开始-------->
 
-  function fun03()
+  function back01()
 {
-    if(result101.length > 1)
+    if(result101.length > 1 && Adding01.length > 0)
 	{
 	var NewResult=result101.substring(0,result101.length-1);
 	var NewAdding=Adding01.substring(0,Adding01.length-1);
@@ -287,13 +287,13 @@ lowerhalf.innerText="输入错误";
 	}
 	else
 	{  
-	fun04()
+	clear01()
 	}
 }
 <!---------退格结束--------->
 
 <!---------画面清除开始-------->
-  function fun04()
+  function clear01()
 {
 	result101="";
 	Adding01="";
@@ -303,5 +303,5 @@ lowerhalf.innerText="输入错误";
 }
 <!---------清除结束--------->
 </script>
-	</body>
+</body>
 </html>
