@@ -12,16 +12,23 @@
 }
 .shopName{position: absolute; top: 30px; left: 5%; font-size: 50px; font-family: Times New Roman; font-weight: bold; color: black; text-shadow: 0px 0px 1px white;
 }
-.menuBar{width: 100%; height: 30px; margin: 0px;
-	background-image: url(http://www.soldeazy.com/pub/navbar/webbar27.png);
+.menuBar{width: 100%; height: 30px; margin: 0px; overflow: hidden;
 }
-.menuSmallBar{width: auto;
-	margin-top: auto; 
-	margin-bottom: auto;
-	text-align: center;
+.menuSmallBar{position: relative; line-height: 30px; width: 50%; float: left; overflow: hidden;
 }
-.menuBar01{line-height: 30px; width: 50%}
-.menuBar01{line-height: 30px; width: 50%}
+.menuSmallBar a{color: black; text-decoration: none;
+}
+.menuSmallBar img{width: 100%; height: 100%;
+}
+.menuBarText{position: absolute; top: 0px;
+	width: 100%;
+	margin: 0px auto;
+	border-left: 2px solid #336666;
+	border-right: 2px solid #336666;
+	text-align: center; font-size: 15px; font-weight: bold; text-shadow: 1px 1px 3px white;
+}
+.menuSmallBar a:hover img{transform: rotate(-180deg);}
+.menuSmallBar a:hover > .menuBarText{z-index: 999;}
 .itemTitle{margin:10px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
 .itemSpec{margin:5px auto 10px auto; font-size: 15px; font-family: Arial;
@@ -68,7 +75,6 @@
 #payment_text, #shipping_text, #returns_text{
 	border-left: 1px solid green;
 	border-right: 1px solid green;
-	border-bottom: 1px solid green;
 	border-bottom: 1px solid green;
 	background: #D1E9E9;
 	margin: 0 10px 10px 10px; padding: 20px;
@@ -143,10 +149,8 @@
 <div class="shopTop"><span class="shopName">Jenny&#39;s Shop</span> <img src="https://soldeazy.com/pub/banner_new/03.png" /></div>
 
 <div class="menuBar">
-<div class="menuSmallBar">
-<span class="menuBar01">All Items</span>
-<span class="menuBar02">About me</span>
-</div>
+<span class="menuSmallBar"><a href="https://www.ebay.com/sch/jennymaboroshi/m.html" target="_blank"><span class="menuBarText">All Items</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span>
+<span class="menuSmallBar"><a href="https://www.ebay.com/usr/jennymaboroshi" target="_blank"><span class="menuBarText">About me</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span>
 </div>
 
 <center>
@@ -160,7 +164,13 @@
 
 </center>
 
-<div class="policies"><input checked="checked" id="payment" name="policy" type="radio" /><label for="payment">PAYMENT </label> <input id="shipping" name="policy" type="radio" /><label for="shipping">SHIPPING </label> <input id="returns" name="policy" type="radio" /><label for="returns">RETURNS </label>
+<div class="policies">
+	<input checked="checked" id="payment" name="policy" type="radio" />
+	<label for="payment">PAYMENT </label>
+	<input id="shipping" name="policy" type="radio" />
+	<label for="shipping">SHIPPING </label>
+	<input id="returns" name="policy" type="radio" />
+	<label for="returns">RETURNS </label>
 <div id="payment_text">PayPal is the only accepted payment method.<br>&nbsp;</div>
 <div id="shipping_text">Handling time: 10 business days. <br> Item will be shipped to buyer's PayPal address.</div>
 <div id="returns_text">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
