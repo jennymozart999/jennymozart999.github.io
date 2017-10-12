@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Z's blog</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+##这是一个简单的eBay物品描述模板
+
+我们都知道淘宝的商品详情页只有图片，而eBay则不同，商品详情页的主体部分可以自由编辑，可插入文字、图片、链接等等对于商品的说明。
+
+eBay的物品描述主要使用的是HTML内容，但是由于一般的卖家不具有专业的HTML知识，大多数人通常都只是把eBay的商品详情编辑页面提供的HTML编辑器当做普通的文本编辑器来使用。
+
+SoldEazy是专门的多平台listing管理系统，除了可以批量操作商品的基本情况之外，还提供了简单快捷的“无代码设计系统”和可供具有HTML知识的用户使用的“代码编程设计系统”，方便用户设计物品描述的模板。
+
+用“代码编程设计系统”可以设计出如下的eBay物品描述模板。
+
+<a href="201710121810-template.html" target="_blank">eBay物品描述模板范例</a>
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h2 id="ebay">这是一个简单的eBay物品描述模板</h2>
+
+<p>我们都知道淘宝的商品详情页只有图片，而eBay则不同，商品详情页的主体部分可以自由编辑，可插入文字、图片、链接等等对于商品的说明。</p>
+
+<p>eBay的物品描述主要使用的是HTML内容，但是由于一般的卖家不具有专业的HTML知识，大多数人通常都只是把eBay的商品详情编辑页面提供的HTML编辑器当做普通的文本编辑器来使用。</p>
+
+<p>SoldEazy是专门的多平台listing管理系统，除了可以批量操作商品的基本情况之外，还提供了简单快捷的“无代码设计系统”和可供具有HTML知识的用户使用的“代码编程设计系统”，方便用户设计物品描述的模板。</p>
+
+<p>用“代码编程设计系统”可以设计出如下的eBay物品描述模板。</p>
+
+<p><a href="201710121810-template.html" target="_blank">eBay物品描述模板范例</a></p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "201710121810.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
