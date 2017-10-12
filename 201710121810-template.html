@@ -1,0 +1,178 @@
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" name="viewport" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+.subBody{
+	width: 1000px; height: auto; margin: 5px auto; border-color: #336666; border: 1px solid;
+	background-color:#6FB7B7; box-shadow: 3px 3px 3px #336666;
+}
+.shopTop{
+	position: relative;
+}
+.shopTop img{width:100%; max-width:100%;
+}
+.shopName{position: absolute; top: 30px; left: 5%; font-size: 50px; font-family: Times New Roman; font-weight: bold; color: black; text-shadow: 0px 0px 1px white;
+}
+.menuBar{width: 100%; height: 30px; margin: 0px;
+	background-image: url(http://www.soldeazy.com/pub/navbar/webbar27.png);
+}
+.menuSmallBar{width: auto;
+	margin-top: auto; 
+	margin-bottom: auto;
+	text-align: center;
+}
+.menuBar01{line-height: 30px; width: 50%}
+.menuBar01{line-height: 30px; width: 50%}
+.itemTitle{margin:10px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
+}
+.itemSpec{margin:5px auto 10px auto; font-size: 15px; font-family: Arial;
+	word-wrap: break-word; word-break: break-all;
+}
+.itemSpec table{border: solid 3px #336666; border-collapse: collapse; width: 96%; background-color: white;
+}
+.itemSpec th{padding:5px; font-size: 20px;}
+.itemSpec td{border: solid 3px #336666; border-collapse: collapse; width: 50%; padding: 5px;
+}
+.photoHeader{margin: 15px 0px 10px 0px; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
+}
+.itemPhoto{margin:0px auto;}
+.itemPhoto img{width:100%; max-width: 100%; margin-top: 5px; margin-bottom: 5px;
+}
+.policies{margin:10px auto 0px auto;
+}
+.policies input{display: none;
+}
+.policies label{
+	display: inline-block;
+	margin: 10px 10px 0px 10px;
+	padding: 5px 9px 5px 9px;
+	background-color: #3D7878; 
+	-moz-user-select: none;
+    user-select: none;
+	border-left: solid 1px green;
+	border-top: solid 1px green;
+	border-right: solid 1px green;
+	border-top-left-radius: 11px; 
+	border-top-right-radius: 11px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	color: white;
+	font-family: Times New Roman;
+	font-size: 20px;
+	cursor: pointer;
+}
+.policies label:hover {background: #D1E9E9; color: black;
+}
+/*相邻元素用加号连接，加号右边的元素一定要紧接着左边元素之后出现*/
+.policies input:checked + label{background: #D1E9E9; color:black; 
+}
+#payment_text, #shipping_text, #returns_text{
+	border-left: 1px solid green;
+	border-right: 1px solid green;
+	border-bottom: 1px solid green;
+	border-bottom: 1px solid green;
+	background: #D1E9E9;
+	margin: 0 10px 10px 10px; padding: 20px;
+	font-family: Arial; font-size: 20px; font-weight: bold;
+	text-align: left;
+	overflow: hidden; display: none;
+}
+/*同级元素用波浪线连接，波浪线右边的元素必须跟左边的处于同一个父级元素之下*/
+#payment:checked ~ #payment_text,
+#shipping:checked ~ #shipping_text,
+#returns:checked ~ #returns_text{display: block;
+}
+.policiesMobile{
+	margin:5px 10px 10px 10px;
+	display: none;
+}
+.policyMobileHeader{
+	margin-top: 10px;
+	padding: 5px 9px 5px 9px;
+	text-align: left;
+	background-color: #3D7878; 
+	-moz-user-select: none;
+    user-select: none;
+	border-top-left-radius: 11px; 
+	border-top-right-radius: 11px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	color: white;
+	font-family: Times New Roman;
+	font-size: 20px;
+	display: inline-block;
+	overflow: hidden;
+}
+.policyMobileText{
+	border: 1px solid green;
+	background: #D1E9E9;
+	margin: 0px; padding: 10px;
+	font-family: Arial; font-size: 20px; font-weight: bold;
+	text-align: left;
+	overflow: hidden;
+}
+@media (max-width:1015px)  
+{ 
+.subBody{width:99%}
+.shopName{top: 0px; font-size: 25px;}
+.itemTitle{font-size:20px;}
+.policies{display: none;}
+.policiesMobile{display: block;}
+}
+@media (min-width:800px) and (max-width: 1015px)
+{
+.shopName{top: 30px; font-size: 45px;}
+}
+@media (min-width:700px) and (max-width: 799px)
+{
+.shopName{top: 28px; font-size: 35px;}
+}
+@media (min-width:600px) and (max-width: 699px)
+{
+.shopName{top: 25px; font-size: 30px;}
+}
+@media (min-width:500px) and (max-width: 599px)
+{
+.shopName{top: 18px; font-size: 28px;}
+}
+@media (min-width:400px) and (max-width: 499px)
+{
+.shopName{top: 13px; font-size: 25px;}
+}
+</style>
+<div class="subBody">
+<div class="shopTop"><span class="shopName">Jenny&#39;s Shop</span> <img src="https://soldeazy.com/pub/banner_new/03.png" /></div>
+
+<div class="menuBar">
+<div class="menuSmallBar">
+<span class="menuBar01">All Items</span>
+<span class="menuBar02">About me</span>
+</div>
+</div>
+
+<center>
+<div class="itemTitle">{{{dsheet_titleinternal}}}</div>
+
+<div class="itemSpec">{{{item_spec}}}</div>
+
+<p class="photoHeader">Detailed Photos</p>
+
+<div class="itemPhoto">{{{layout_1}}}</div>
+
+</center>
+
+<div class="policies"><input checked="checked" id="payment" name="policy" type="radio" /><label for="payment">PAYMENT </label> <input id="shipping" name="policy" type="radio" /><label for="shipping">SHIPPING </label> <input id="returns" name="policy" type="radio" /><label for="returns">RETURNS </label>
+<div id="payment_text">PayPal is the only accepted payment method.<br>&nbsp;</div>
+<div id="shipping_text">Handling time: 10 business days. <br> Item will be shipped to buyer's PayPal address.</div>
+<div id="returns_text">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
+</div>
+
+<div class="policiesMobile">
+<div class="policyMobileHeader">PAYMENT</div>
+<div class="policyMobileText">PayPal is the only accepted payment method.</div>
+<div class="policyMobileHeader">SHIPPING</div>
+<div class="policyMobileText">Handling time: 10 business days. <br> Item will be shipped to buyer's PayPal address.</div>
+<div class="policyMobileHeader">RETURNS</div>
+<div class="policyMobileText">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
+</div>
+
+</div>
