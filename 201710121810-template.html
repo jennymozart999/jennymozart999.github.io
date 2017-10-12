@@ -29,8 +29,9 @@
 	border-right: 2px solid #336666;
 	text-align: center; font-size: 15px; font-weight: bold; text-shadow: 1px 1px 3px white;
 }
-.menuSmallBar a:hover img{transform: rotate(-180deg);}
-.menuSmallBar a:hover > .menuBarText{z-index: 999;}
+/*大于号用于连接父级和子级，中间是空格则是标签组合选择，包含关系*/
+.menuSmallBar a:hover > img{transform: rotate(-180deg);}
+.menuSmallBar a:hover .menuBarText{z-index: 999;}
 .itemTitle{margin:10px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
 .itemSpec{margin:5px auto 10px auto; font-size: 15px; font-family: Arial;
@@ -71,7 +72,7 @@
 }
 .policies label:hover {background: #D1E9E9; color: black;
 }
-/*相邻元素用加号连接，加号右边的元素一定要紧接着左边元素之后出现*/
+/*相邻元素用加号连接，加号右边的元素一定要紧接着左边元素之后出现，并列关系*/
 .policies input:checked + label{background: #D1E9E9; color:black; 
 }
 #payment_text, #shipping_text, #returns_text{
@@ -84,7 +85,7 @@
 	text-align: left;
 	overflow: hidden; display: none;
 }
-/*同级元素用波浪线连接，波浪线右边的元素必须跟左边的处于同一个父级元素之下*/
+/*同级元素用波浪线连接，波浪线右边的元素必须跟左边的处于同一个父级元素之下，并列关系*/
 #payment:checked ~ #payment_text,
 #shipping:checked ~ #shipping_text,
 #returns:checked ~ #returns_text{display: block;
