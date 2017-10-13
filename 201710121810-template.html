@@ -81,7 +81,7 @@
 #label_payment{position: absolute;
 	top: -32px;
 	left: 0px;
-	z-index: 6;
+	z-index: 1;
 }
 #label_shipping{position: absolute;
 	top: -32px;
@@ -91,7 +91,7 @@
 #label_returns{position: absolute;
 	top: -32px;
 	left:209px;
-	z-index: 1;
+	z-index: 3;
 }
 .policies label:hover {background: #D1E9E9; color: black;
 }
@@ -106,17 +106,11 @@
 	background: #D1E9E9;
 	margin: 0px;
 	padding: 20px;
-	z-index: 3;
 	font-family: Arial; font-size: 20px; font-weight: bold;
 	text-align: left;
 	overflow: hidden; display: none;
 }
-#payment_text{z-index: 3;
-}
-#shipping_text{z-index: 4;
-}
-#returns_text{z-index: 5;
-}
+
 /*同级元素用波浪线连接，波浪线右边的元素必须跟左边的处于同一个父级元素之下，并列关系*/
 #payment:checked ~ #payment_text,
 #shipping:checked ~ #shipping_text,
