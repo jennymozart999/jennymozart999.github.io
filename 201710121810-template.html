@@ -1,7 +1,6 @@
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" name="viewport" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<style type="text/css">
-.subBody{
+<style type="text/css">.subBody{
 	width: 1000px; height: auto; margin: 5px auto; border-color: #336666; border: 1px solid;
 	background-color:#6FB7B7; box-shadow: 3px 3px 3px #336666;
 }
@@ -12,11 +11,18 @@
 }
 .shopTop img{width:100%; max-width:100%;
 }
-.shopName{position: absolute; top: 30px; left: 5%; font-size: 50px; font-family: Times New Roman; font-weight: bold; color: black; text-shadow: 0px 0px 1px white;
+.shopName{position: absolute; top: 30px; left: 5%;
+	font-size: 50px; font-family: Times New Roman; font-weight: bold;
+	color: black; text-shadow: 0px 0px 1px white;
+	cursor: default;
 }
 .menuBar{width: 100%; height: 30px; margin: 0px; overflow: hidden;
 }
-.menuSmallBar{position: relative; line-height: 30px; width: 50%; float: left; overflow: hidden;
+.menuSmallBar{position: relative;
+	width: 50%;
+	float: left;
+	line-height: 30px;
+	
 }
 .menuSmallBar a{color: black; text-decoration: none;
 }
@@ -25,13 +31,15 @@
 .menuBarText{position: absolute; top: 0px;
 	width: 100%;
 	margin: 0px auto;
-	border-left: 2px solid #336666;
-	border-right: 2px solid #336666;
-	text-align: center; font-size: 15px; font-weight: bold; text-shadow: 1px 1px 3px white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 15px; font-weight: bold; text-shadow: 1px 1px 3px white;
+}
+#menuBar_right{border-left: solid 3px green;
 }
 /*大于号用于连接父级和子级，中间是空格则是标签组合选择，包含关系*/
 .menuSmallBar a:hover > img{transform: rotate(-180deg);}
-.menuSmallBar a:hover .menuBarText{z-index: 999;}
+.menuSmallBar a:hover .menuBarText{z-index: 1;}
 .itemTitle{margin:10px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
 .itemSpec{margin:5px auto 10px auto; font-size: 15px; font-family: Arial;
@@ -47,22 +55,22 @@
 .itemPhoto{margin:0px auto;}
 .itemPhoto img{width:100%; max-width: 100%; margin-top: 5px; margin-bottom: 5px;
 }
-.policies{margin:10px auto 0px auto;
+.policies{position: relative; margin:43px 10px 10px 10px;
 }
 .policies input{display: none;
 }
 .policies label{
 	display: inline-block;
-	margin: 10px 10px 0px 10px;
-	padding: 5px 9px 5px 9px;
+	margin: 0px;
+	padding: 5px 10px 5px 10px;
 	background-color: #3D7878; 
 	-moz-user-select: none;
     user-select: none;
-	border-left: solid 1px green;
-	border-top: solid 1px green;
-	border-right: solid 1px green;
-	border-top-left-radius: 11px; 
-	border-top-right-radius: 11px;
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-right: solid 1px black;
+	border-top-left-radius: 18px; 
+	border-top-right-radius: 18px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	color: white;
@@ -70,17 +78,35 @@
 	font-size: 20px;
 	cursor: pointer;
 }
+#label_payment{position: absolute;
+	top: -32px;
+	left: 0px;
+	z-index: 4;
+}
+#label_shipping{position: absolute;
+	top: -32px;
+	left:106px;
+	z-index: 2;
+}
+#label_returns{position: absolute;
+	top: -32px;
+	left:209px;
+	z-index: 1;
+}
 .policies label:hover {background: #D1E9E9; color: black;
 }
 /*相邻元素用加号连接，加号右边的元素一定要紧接着左边元素之后出现，并列关系*/
-.policies input:checked + label{background: #D1E9E9; color:black; 
+.policies input:checked + label{background: #D1E9E9; color:black; z-index:998;
 }
 #payment_text, #shipping_text, #returns_text{
-	border-left: 1px solid green;
-	border-right: 1px solid green;
-	border-bottom: 1px solid green;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top:  1px solid black;
+	border-bottom: 1px solid black;
 	background: #D1E9E9;
-	margin: 0 10px 10px 10px; padding: 20px;
+	margin: 0px;
+	padding: 20px;
+	z-index: 3;
 	font-family: Arial; font-size: 20px; font-weight: bold;
 	text-align: left;
 	overflow: hidden; display: none;
@@ -88,7 +114,7 @@
 /*同级元素用波浪线连接，波浪线右边的元素必须跟左边的处于同一个父级元素之下，并列关系*/
 #payment:checked ~ #payment_text,
 #shipping:checked ~ #shipping_text,
-#returns:checked ~ #returns_text{display: block;
+#returns:checked ~ #returns_text{display: block;;
 }
 .policiesMobile{
 	margin:5px 10px 10px 10px;
@@ -151,10 +177,7 @@
 <div class="subBody">
 <div class="shopTop"><span class="shopName">Jenny&#39;s Shop</span> <img src="https://soldeazy.com/pub/banner_new/03.png" /></div>
 
-<div class="menuBar">
-<span class="menuSmallBar"><a href="https://www.ebay.com/sch/jennymaboroshi/m.html" target="_blank"><span class="menuBarText">All Items</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span>
-<span class="menuSmallBar"><a href="https://www.ebay.com/usr/jennymaboroshi" target="_blank"><span class="menuBarText">About me</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span>
-</div>
+<div class="menuBar"><span class="menuSmallBar"><a href="https://www.ebay.com/sch/jennymaboroshi/m.html" target="_blank"><span class="menuBarText">All Items</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span> <span class="menuSmallBar"><a href="https://www.ebay.com/usr/jennymaboroshi" target="_blank"><span class="menuBarText" id="menuBar_right">About me</span><img src="http://www.soldeazy.com/pub/navbar/webbar27.png" /></a></span></div>
 
 <center>
 <div class="itemTitle">{{{dsheet_titleinternal}}}</div>
@@ -164,28 +187,36 @@
 <p class="photoHeader">Detailed Photos</p>
 
 <div class="itemPhoto">{{{layout_1}}}</div>
-
 </center>
 
 <div class="policies">
 	<input checked="checked" id="payment" name="policy" type="radio" />
-	<label for="payment">PAYMENT </label>
+	<label for="payment" id="label_payment">PAYMENT </label>
 	<input id="shipping" name="policy" type="radio" />
-	<label for="shipping">SHIPPING </label>
+	<label for="shipping" id="label_shipping">SHIPPING</label>
 	<input id="returns" name="policy" type="radio" />
-	<label for="returns">RETURNS </label>
-<div id="payment_text">PayPal is the only accepted payment method.<br>&nbsp;</div>
-<div id="shipping_text">Handling time: 10 business days. <br> Item will be shipped to buyer's PayPal address.</div>
-<div id="returns_text">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
+	<label for="returns" id="label_returns">RETURNS </label>
+	<div id="payment_text">PayPal is the only accepted payment method.<br />
+	&nbsp;</div>
+
+	<div id="shipping_text">Handling time: 10 business days.<br />
+	Item will be shipped to buyer&#39;s PayPal address.</div>
+
+	<div id="returns_text">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
 </div>
 
 <div class="policiesMobile">
 <div class="policyMobileHeader">PAYMENT</div>
+
 <div class="policyMobileText">PayPal is the only accepted payment method.</div>
+
 <div class="policyMobileHeader">SHIPPING</div>
-<div class="policyMobileText">Handling time: 10 business days. <br> Item will be shipped to buyer's PayPal address.</div>
+
+<div class="policyMobileText">Handling time: 10 business days.<br />
+Item will be shipped to buyer&#39;s PayPal address.</div>
+
 <div class="policyMobileHeader">RETURNS</div>
+
 <div class="policyMobileText">Generally speaking, returns are not accepted, but if you receive an item with serious damage, please contact me through ebay system, I will get back to you soon.</div>
 </div>
-
 </div>
