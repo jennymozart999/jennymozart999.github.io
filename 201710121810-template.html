@@ -40,22 +40,41 @@
 /*大于号用于连接父级和子级，中间是空格则是标签组合选择，包含关系*/
 .menuSmallBar a:hover > img{transform: rotate(-180deg);}
 .menuSmallBar a:hover .menuBarText{z-index: 1;}
-.itemTitle{margin:10px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
+.itemTitle{margin:15px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
-.itemSpec{margin:5px auto 10px auto; font-size: 15px; font-family: Arial;
+.itemSpec{margin:25px; font-size: 15px; font-family: Arial;
 	word-wrap: break-word; word-break: break-all;
 }
-.itemSpec table{border: solid 3px #336666; border-collapse: collapse; width: 96%; background-color: white;
+.itemSpec table{border: solid 3px #336666; border-collapse: collapse; width: 100%; background-color: white;
+}
+/*------ *:nth-child() 可以指定某些特定排序的该元素 ------*/
+.itemSpec tr:nth-child(even){background-color: #D1E9E9;
 }
 .itemSpec th{padding:5px; font-size: 20px;}
 .itemSpec td{border: solid 3px #336666; border-collapse: collapse; width: 50%; padding: 5px;
 }
 .photoHeader{margin: 15px 0px 10px 0px; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
 }
-.itemPhoto{margin:0px auto;}
-.itemPhoto img{width:100%; max-width: 100%; margin-top: 5px; margin-bottom: 5px;
+.itemPhoto{margin: 5px auto 5px 25px; width: 900px;
 }
-.policies{position: relative; margin:43px 10px 10px 10px;
+.itemPhoto img{
+	margin: 5px 0px 5px 36px;
+	max-width: 100%;
+	border-left: 10px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 10px solid gray;
+}
+.itemPhoto img:nth-child(odd){
+	margin: 5px 0px 5px 1px;
+	border-left: 1px solid gray;
+	border-right: 10px solid gray;
+}
+.ebig img{width: 925;}
+.itemPhotoMobile{margin:5px auto; display: none;
+}
+.itemPhotoMobile img{width:100%; max-width: 100%; margin: 5px 0px 5px 0px;
+}
+.policies{position: relative; margin:43px 25px 25px 25px;
 }
 .policies input{display: none;
 }
@@ -117,7 +136,7 @@
 #returns:checked ~ #returns_text{display: block;
 }
 .policiesMobile{
-	margin:5px 10px 10px 10px;
+	margin:5px 15px 10px 10px;
 	display: none;
 }
 .policyMobileHeader{
@@ -145,15 +164,20 @@
 	text-align: left;
 	overflow: hidden;
 }
-@media (max-width:1015px)  
+/*因为eBay的物品描述宽度为1080px，所以最好从1081px开始变化，否则会有横向滚动条*/
+@media (max-width:1081px)  
 { 
 .subBody{width:99%}
 .shopName{top: 0px; font-size: 25px;}
 .itemTitle{font-size:20px;}
+.itemSpec{margin-left: 0px; margin-right: 0px;}
+.itemSpec table{width: 96%;}
+.itemPhoto{display: none;}
+.itemPhotoMobile{display: block;}
 .policies{display: none;}
 .policiesMobile{display: block;}
 }
-@media (min-width:800px) and (max-width: 1015px)
+@media (min-width:800px) and (max-width: 1081px)
 {
 .shopName{top: 30px; font-size: 45px;}
 }
@@ -187,6 +211,8 @@
 <p class="photoHeader">Detailed Photos</p>
 
 <div class="itemPhoto">{{{layout_1}}}</div>
+
+<div class="itemPhotoMobile">{{{layout_1}}}</div>
 </center>
 
 <div class="policies">
