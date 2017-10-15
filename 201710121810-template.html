@@ -101,28 +101,34 @@
 .itemSpec tr:last-child td:nth-last-child(2) {border-bottom-left-radius: 13px;}
 .photoHeader{margin: 15px 0px 10px 0px; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
 }
-.itemPhoto{margin: 5px auto 5px 25px; width: 900px;
+.itemPhoto_thumb{
+	margin:5px auto;
 }
-.itemPhoto img{
-	margin: 5px 0px 5px 36px;
-	max-width: 100%;
-	border-left: 10px solid gray;
-	border-right: 2px solid gray;
-	border-bottom: 10px solid gray;
+.itemPhoto_thumb img{
+	display: inline-block;
+	width:15%; max-width: 15%;
+	margin: 3px;
+	border: 2px solid #6FB7B7;
+}
+.itemPhoto_thumb img:hover {border-color: #4F4F4F;
+}
+.itemPhoto{margin: 5px auto 5px 25px; width: 900px;
 }
 .itemPhoto img:nth-child(odd){
 	margin: 5px 0px 5px 1px;
-	border-left: 1px solid gray;
-	border-right: 10px solid gray;
+	max-width: 100%;
+	border-left: 2px solid #4F4F4F;
+	border-right: 10px solid #4F4F4F;
+	border-top: 2px solid #4F4F4F;
+	border-bottom: 10px solid #4F4F4F;
 }
-.itemPhotoMobile_thumb{
-	margin:5px auto;
-	display: none;
-}
-.itemPhotoMobile_thumb img{
-	display: inline-block;
-	width:22%; max-width: 22%;
-	margin: 3px 5px;
+.itemPhoto img:nth-child(even){
+	margin: 5px 0px 5px 36px;
+	max-width: 100%;
+	border-left: 10px solid #4F4F4F;
+	border-right: 2px solid #4F4F4F;
+	border-top: 2px solid #4F4F4F;
+	border-bottom: 10px solid #4F4F4F;
 }
 .itemPhotoMobile_big{
 	margin: 5px auto;
@@ -231,36 +237,39 @@
 	.itemSpec{margin-left: 0px; margin-right: 0px;}
 	.itemSpec table{width: 96%;}
 	.itemPhoto{display: none;}
-	.itemPhotoMobile_thumb{display: block;}
 	.itemPhotoMobile_big{display: block;}
 	.policies{display: none;}
 	.policiesMobile{display: block;}
 }
-@media (min-width:800px) and (max-width: 1081px)
+@media (max-width: 1081px)
 {
 	.shopName{top: 30px; font-size: 45px;}
 }
-@media (min-width:700px) and (max-width: 799px)
+@media (max-width: 800px)
 {
 	.shopName{top: 28px; font-size: 35px;}
 }
-@media (min-width:600px) and (max-width: 699px)
+@media (max-width: 700px)
 {
 	.shopName{top: 25px; font-size: 30px;}
 }
-@media (min-width:500px) and (max-width: 599px)
+@media (max-width: 600px)
 {
 	.shopName{top: 18px; font-size: 28px;}
+	.itemPhoto_thumb img{
+		width:22%; max-width: 22%;
+		margin: 3px 5px;
+	}
 }
-@media (min-width:400px) and (max-width: 499px)
+@media (max-width: 500px)
 {
 	.shopName{top: 13px; font-size: 25px;}
-	.itemPhotoMobile_thumb img{margin:5px;}
+	.itemPhoto_thumb img{margin: 3px 4px;}
 }
-@media (min-width: 150px) and (max-width: 399px)
+@media (max-width: 400px)
 {
 	.shopName{top: 0px; font-size: 25px;}
-	.itemPhotoMobile_thumb img{margin:3px;}
+	.itemPhoto_thumb img{margin:2px;}
 }
 </style>
 <div class="subBody">
@@ -271,19 +280,19 @@
 	<div class="menuBar">
 		<span class="menuSmallBar">
 			<span class="menuBarText">My Items</span>
-			<img src="http://www.soldeazy.com/pub/navbar/webbar27.png" />
+			<img src="https://www.soldeazy.com/pub/navbar/webbar27.png" />
 			<span class="menuSmallText">
-				Currently I only have one necklace on sale, you can choose to either buy it with a fixed price or you can choose to place bid with your price offer.<br>
+				Currently I only have one necklace on sale, you can choose to either buy it with a fixed price or you can place bid with your price offer.<br>
 				<a href="https://www.ebay.com/sch/jennymaboroshi/m.html" target="_blank">
-					See all items
+					See your options
 				</a>
 			</span>
 		</span>
 		<span class="menuSmallBar">
 			<span class="menuBarText" id="menuBar_right">About me</span>
-			<img src="http://www.soldeazy.com/pub/navbar/webbar27.png" />
+			<img src="https://www.soldeazy.com/pub/navbar/webbar27.png" />
 			<span class="menuSmallText">
-				I&#39;m new as an eBay seller, if you have any queries, please contact me through eBay system at any time.<br>
+				I&#39;m open to any queries, you can contact me through eBay system at any time.<br>
 				<a href="https://www.ebay.com/usr/jennymaboroshi" target="_blank">
 					My info
 				</a>
@@ -294,8 +303,8 @@
 	<div class="itemTitle">{{{dsheet_titleinternal}}}</div>
 	<div class="itemSpec">{{{item_spec}}}</div>
 	<p class="photoHeader">Detailed Photos</p>
+	<div class="itemPhoto_thumb">{{{layout_1}}}</div>
 	<div class="itemPhoto">{{{layout_1}}}</div>
-	<div class="itemPhotoMobile_thumb">{{{layout_1}}}</div>
 	<div class="itemPhotoMobile_big">{{{layout_1}}}</div>
 	</center>
 	<div class="policies">
