@@ -101,34 +101,108 @@
 .itemSpec tr:last-child td:nth-last-child(2) {border-bottom-left-radius: 13px;}
 .photoHeader{margin: 15px 0px 10px 0px; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
 }
-.itemPhoto_thumb{
-	margin:5px auto;
+.itemPhoto_PC_ver{
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	height: 700px;
 }
-.itemPhoto_thumb img{
+#itemPhoto_thumb_01, #itemPhoto_thumb_02, #itemPhoto_thumb_03,
+#itemPhoto_thumb_04, #itemPhoto_thumb_05, #itemPhoto_thumb_06,
+#itemPhoto_thumb_07, #itemPhoto_thumb_08, #itemPhoto_thumb_09,
+#itemPhoto_thumb_10, #itemPhoto_thumb_11, #itemPhoto_thumb_12{
+	width:15%;
+	margin: 1px 3px;
+	border: 2px solid #6FB7B7;
+	text-align: center; 
+	cursor: pointer;
+	display: inline-block;
+}
+#itemPhoto_thumb_01 img, #itemPhoto_thumb_02 img, #itemPhoto_thumb_03 img,
+#itemPhoto_thumb_04 img, #itemPhoto_thumb_05 img, #itemPhoto_thumb_06 img,
+#itemPhoto_thumb_07 img, #itemPhoto_thumb_08 img, #itemPhoto_thumb_09 img,
+#itemPhoto_thumb_10 img, #itemPhoto_thumb_11 img, #itemPhoto_thumb_12 img{
+	margin: 0px; padding: 0px; width: 100%; max-width: 100%; display: none; 
+	
+}
+#itemPhoto_thumb_01 img:nth-child(1){display: block;}
+#itemPhoto_thumb_02 img:nth-child(2){display: block;}
+#itemPhoto_thumb_03 img:nth-child(3){display: block;}
+#itemPhoto_thumb_04 img:nth-child(4){display: block;}
+#itemPhoto_thumb_05 img:nth-child(5){display: block;}
+#itemPhoto_thumb_06 img:nth-child(6){display: block;}
+#itemPhoto_thumb_07 img:nth-child(7){display: block;}
+#itemPhoto_thumb_08 img:nth-child(8){display: block;}
+#itemPhoto_thumb_09 img:nth-child(9){display: block;}
+#itemPhoto_thumb_10 img:nth-child(10){display: block;}
+#itemPhoto_thumb_11 img:nth-child(11){display: block;}
+#itemPhoto_thumb_12 img:nth-child(12){display: block;}
+
+#itemPhoto_thumb_01:hover, #itemPhoto_thumb_02:hover, #itemPhoto_thumb_03:hover,
+#itemPhoto_thumb_04:hover, #itemPhoto_thumb_05:hover, #itemPhoto_thumb_06:hover,
+#itemPhoto_thumb_07:hover, #itemPhoto_thumb_08:hover, #itemPhoto_thumb_09:hover,
+#itemPhoto_thumb_10:hover, #itemPhoto_thumb_11:hover, #itemPhoto_thumb_12:hover{
+	border-color: #4F4F4F;
+}
+#itemPhoto_big_01{
+	margin: 5px 200px 50px 200px; padding: 0px;
+	width: 600px;
+}
+#itemPhoto_big_02, #itemPhoto_big_03, #itemPhoto_big_04,
+#itemPhoto_big_05, #itemPhoto_big_06, #itemPhoto_big_07,
+#itemPhoto_big_08, #itemPhoto_big_09, #itemPhoto_big_10,
+#itemPhoto_big_11, #itemPhoto_big_12{
+	position: absolute;
+	top: 250px;
+	left: 200px;
+	margin: 0px; padding: 0px;
+	width: 600px; display: none; 
+}
+#itemPhoto_big_01 img, #itemPhoto_big_02 img, #itemPhoto_big_03 img,
+#itemPhoto_big_04 img, #itemPhoto_big_05 img, #itemPhoto_big_06 img,
+#itemPhoto_big_07 img, #itemPhoto_big_08 img, #itemPhoto_big_09 img,
+#itemPhoto_big_10 img, #itemPhoto_big_11 img, #itemPhoto_big_12 img{
+	margin: 0px; padding: 0px; max-width: 100%; display: none; 
+}
+#itemPhoto_big_01 img:nth-child(1){display: block;}
+#itemPhoto_big_02 img:nth-child(2){display: block;}
+#itemPhoto_big_03 img:nth-child(3){display: block;}
+#itemPhoto_big_04 img:nth-child(4){display: block;}
+#itemPhoto_big_05 img:nth-child(5){display: block;}
+#itemPhoto_big_06 img:nth-child(6){display: block;}
+#itemPhoto_big_07 img:nth-child(7){display: block;}
+#itemPhoto_big_08 img:nth-child(8){display: block;}
+#itemPhoto_big_09 img:nth-child(9){display: block;}
+#itemPhoto_big_10 img:nth-child(10){display: block;}
+#itemPhoto_big_11 img:nth-child(11){display: block;}
+#itemPhoto_big_12 img:nth-child(12){display: block;}
+
+#itemPhoto_thumb_02:hover ~ #itemPhoto_big_02,
+#itemPhoto_thumb_03:hover ~ #itemPhoto_big_03,
+#itemPhoto_thumb_04:hover ~ #itemPhoto_big_04,
+#itemPhoto_thumb_05:hover ~ #itemPhoto_big_05,
+#itemPhoto_thumb_06:hover ~ #itemPhoto_big_06,
+#itemPhoto_thumb_07:hover ~ #itemPhoto_big_07,
+#itemPhoto_thumb_08:hover ~ #itemPhoto_big_08,
+#itemPhoto_thumb_09:hover ~ #itemPhoto_big_09,
+#itemPhoto_thumb_10:hover ~ #itemPhoto_big_10,
+#itemPhoto_thumb_11:hover ~ #itemPhoto_big_11,
+#itemPhoto_thumb_12:hover ~ #itemPhoto_big_12{
+	display: block;
+}
+
+.itemPhotoMobile_thumb{
+	margin:5px auto;
+	display: none;
+}
+.itemPhotoMobile_thumb img{
 	display: inline-block;
 	width:15%; max-width: 15%;
 	margin: 3px;
 	border: 2px solid #6FB7B7;
+	cursor: pointer;
 }
-.itemPhoto_thumb img:hover {border-color: #4F4F4F;
-}
-.itemPhoto{margin: 5px auto 5px 25px; width: 900px;
-}
-.itemPhoto img:nth-child(odd){
-	margin: 5px 0px 5px 1px;
-	max-width: 100%;
-	border-left: 2px solid #4F4F4F;
-	border-right: 10px solid #4F4F4F;
-	border-top: 2px solid #4F4F4F;
-	border-bottom: 10px solid #4F4F4F;
-}
-.itemPhoto img:nth-child(even){
-	margin: 5px 0px 5px 36px;
-	max-width: 100%;
-	border-left: 10px solid #4F4F4F;
-	border-right: 2px solid #4F4F4F;
-	border-top: 2px solid #4F4F4F;
-	border-bottom: 10px solid #4F4F4F;
+.itemPhotoMobile_thumb img:hover {border-color: #4F4F4F;
 }
 .itemPhotoMobile_big{
 	margin: 5px auto;
@@ -236,7 +310,8 @@
 	.itemTitle{font-size:20px;}
 	.itemSpec{margin-left: 0px; margin-right: 0px;}
 	.itemSpec table{width: 96%;}
-	.itemPhoto{display: none;}
+	.itemPhoto_PC_ver{display: none;}
+	.itemPhotoMobile_thumb{display: block;}
 	.itemPhotoMobile_big{display: block;}
 	.policies{display: none;}
 	.policiesMobile{display: block;}
@@ -252,14 +327,14 @@
 @media (max-width: 700px)
 {
 	.shopName{top: 25px; font-size: 30px;}
-	.itemPhoto_thumb img{
+	.itemPhotoMobile_thumb img{
 		margin: 3px 1px;
 	}
 }
 @media (max-width: 600px)
 {
 	.shopName{top: 18px; font-size: 28px;}
-	.itemPhoto_thumb img{
+	.itemPhotoMobile_thumb img{
 		width:22%; max-width: 22%;
 		margin: 2px 4px;
 	}
@@ -267,16 +342,16 @@
 @media (max-width: 500px)
 {
 	.shopName{top: 13px; font-size: 25px;}
-	.itemPhoto_thumb img{margin: 2px 3px;}
+	.itemPhotoMobile_thumb img{margin: 2px 3px;}
 }
 @media (max-width: 400px)
 {
 	.shopName{top: 0px; font-size: 25px;}
-	.itemPhoto_thumb img{margin:2px;}
+	.itemPhotoMobile_thumb img{margin:2px;}
 }
 @media (max-width: 300px)
 {
-	.itemPhoto_thumb img{
+	.itemPhotoMobile_thumb img{
 		width:21%; max-width: 21%;
 		margin: 1px;
 }
@@ -312,8 +387,33 @@
 	<div class="itemTitle">{{{dsheet_titleinternal}}}</div>
 	<div class="itemSpec">{{{item_spec}}}</div>
 	<p class="photoHeader">Detailed Photos</p>
-	<div class="itemPhoto_thumb">{{{layout_1}}}</div>
-	<div class="itemPhoto">{{{layout_1}}}</div>
+	<div class="itemPhoto_PC_ver">
+		<div id="itemPhoto_thumb_01">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_02">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_03">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_04">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_05">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_06">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_07">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_08">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_09">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_10">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_11">{{{layout_1}}}</div>
+		<div id="itemPhoto_thumb_12">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_01">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_02">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_03">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_04">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_05">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_06">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_07">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_08">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_09">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_10">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_11">{{{layout_1}}}</div>
+		<div id="itemPhoto_big_12">{{{layout_1}}}</div>
+	</div>
+	<div class="itemPhotoMobile_thumb">{{{layout_1}}}</div>
 	<div class="itemPhotoMobile_big">{{{layout_1}}}</div>
 	</center>
 	<div class="policies">
