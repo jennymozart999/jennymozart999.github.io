@@ -70,7 +70,7 @@
 .menuSmallBar:hover > img{transform: rotate(-180deg);}
 .menuSmallBar:hover .menuBarText{z-index: 1;}
 .menuSmallBar:hover .menuSmallText{display: block;}
-.itemTitle{margin:15px auto 5px auto;font-size:25px; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
+.itemTitle{margin:15px auto 5px auto;font-size:25px; text-align: center; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
 .itemSpec{margin:25px; font-size: 15px; font-family: Arial;
 	word-wrap: break-word; word-break: break-all;
@@ -100,7 +100,7 @@
 }
 .itemSpec tr:last-child td:last-child {border-bottom-right-radius: 13px;}
 .itemSpec tr:last-child td:nth-last-child(2) {border-bottom-left-radius: 13px;}
-.photoHeader{margin: 15px 0px 10px 0px; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
+.photoHeader{margin: 15px auto 10px auto; text-align: center; font-size: 30px; font-weight: bold; text-shadow: 0px 0px 1px white;
 }
 .itemPhoto_PC_ver{
 	position: relative;
@@ -109,14 +109,21 @@
 	width: 800px;
 	height: 650px;
 }
-#itemPhoto_thumb_01, #itemPhoto_thumb_02, #itemPhoto_thumb_03,
-#itemPhoto_thumb_04, #itemPhoto_thumb_05, #itemPhoto_thumb_06,
-#itemPhoto_thumb_07, #itemPhoto_thumb_08, #itemPhoto_thumb_09,
-#itemPhoto_thumb_10, #itemPhoto_thumb_11, #itemPhoto_thumb_12{
+#itemPhoto_thumb_01, #itemPhoto_thumb_07{
+	width:14%;
+	margin: 0px 0px 0px 40px;
+	border: 2px solid #6FB7B7;
+	cursor: pointer;
+	display: inline-block;
+}
+#itemPhoto_thumb_02, #itemPhoto_thumb_03,
+#itemPhoto_thumb_04, #itemPhoto_thumb_05,
+#itemPhoto_thumb_06, #itemPhoto_thumb_08,
+#itemPhoto_thumb_09, #itemPhoto_thumb_10,
+#itemPhoto_thumb_11, #itemPhoto_thumb_12{
 	width:14%;
 	margin: 0px;
 	border: 2px solid #6FB7B7;
-	text-align: center; 
 	cursor: pointer;
 	display: inline-block;
 }
@@ -385,7 +392,6 @@
 			</span>		
 		</span>
 	</div>
-	<center>
 	<div class="itemTitle">{{{dsheet_titleinternal}}}</div>
 	<div class="itemSpec">{{{item_spec}}}</div>
 	<p class="photoHeader">Detailed Photos</p>
@@ -417,7 +423,6 @@
 	</div>
 	<div class="itemPhotoMobile_thumb">{{{layout_1}}}</div>
 	<div class="itemPhotoMobile_big">{{{layout_1}}}</div>
-	</center>
 	<div class="policies">
 		<input checked="checked" id="payment" name="policy" type="radio" />
 		<label for="payment" id="label_payment">PAYMENT </label>
