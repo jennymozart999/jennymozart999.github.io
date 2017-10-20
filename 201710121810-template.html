@@ -72,14 +72,19 @@
 .menuSmallBar:hover .menuSmallText{display: block;}
 .itemTitle{margin:15px auto 5px auto;font-size:25px; text-align: center; font-weight:bold; font-family: Arial; text-shadow: 0px 0px 1px white;
 }
-.itemSpec{margin:25px; font-size: 15px; font-family: Arial;
+.itemSpec{
+
+	font-size: 15px;
+	font-family: Arial;
+	text-align: center;
 	word-wrap: break-word; word-break: break-all;
 }
 .itemSpec table{
+	margin:25px auto;
 	border: none 0px;
 	border-spacing: 4px;
 	border-radius: 17px;
-	width: 100%;
+	width: 96%;
 	background-color: #336666;
 }
 /*------ *:nth-child() 可以指定某些特定排序的该元素 ------*/
@@ -201,6 +206,7 @@
 }
 
 .itemPhotoMobile_thumb{
+	text-align: center;
 	margin:5px auto;
 	display: none;
 }
@@ -214,6 +220,7 @@
 .itemPhotoMobile_thumb img:hover {border-color: #4F4F4F;
 }
 .itemPhotoMobile_big{
+	text-align: center;
 	margin: 5px auto;
 	display: none;
 }
@@ -313,7 +320,7 @@
 }
 /*因为eBay的物品描述宽度为1080px，所以最好从1081px开始变化，否则会有横向滚动条*/
 /* eBay item description is set to be 1080px wide, so better use @media from 1081px, or the horizontal scroll might accidentlly appear*/
-@media (max-width:1081px)  
+@media all and (max-width:1081px)  
 { 
 	.subBody{width:99%}
 	.itemTitle{font-size:20px;}
@@ -325,22 +332,22 @@
 	.policies{display: none;}
 	.policiesMobile{display: block;}
 }
-@media (max-width: 1081px)
+@media all and (max-width: 1081px)
 {
 	.shopName{top: 30px; font-size: 45px;}
 }
-@media (max-width: 800px)
+@media all and (max-width: 800px)
 {
 	.shopName{top: 28px; font-size: 35px;}
 }
-@media (max-width: 700px)
+@media all and (max-width: 700px)
 {
 	.shopName{top: 25px; font-size: 30px;}
 	.itemPhotoMobile_thumb img{
 		margin: 3px 1px;
 	}
 }
-@media (max-width: 600px)
+@media all and (max-width: 600px)
 {
 	.shopName{top: 18px; font-size: 28px;}
 	.itemPhotoMobile_thumb img{
@@ -348,17 +355,17 @@
 		margin: 2px 4px;
 	}
 }
-@media (max-width: 500px)
+@media all and (max-width: 500px)
 {
 	.shopName{top: 13px; font-size: 25px;}
 	.itemPhotoMobile_thumb img{margin: 2px 3px;}
 }
-@media (max-width: 400px)
+@media all and (max-width: 400px)
 {
 	.shopName{top: 0px; font-size: 25px;}
 	.itemPhotoMobile_thumb img{margin:2px;}
 }
-@media (max-width: 300px)
+@media all and (max-width: 300px)
 {
 	.itemPhotoMobile_thumb img{
 		width:21%; max-width: 21%;
