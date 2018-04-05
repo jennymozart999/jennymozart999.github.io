@@ -40,13 +40,29 @@ document.body.appendChild(scripts);
 /*一定要先引入上面的部分，分两步走！！！*/
 /*一定要先引入上面的部分，分两步走！！！*/
 
-(function(){
+;(function(){
+	var w = $("body").width();  
+	var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
+	var newCanvas = document.createElement("canvas");  
+    newCanvas.width = w * 2;  
+    newCanvas.height = h * 2;  
+    newCanvas.style.width = w + "px";  
+    newCanvas.style.height = h + "px";  
+	var context = newCanvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
+    context.scale(2,2); 
 
-    html2canvas($("body"),{ // $()括号里是你要复制生成canvas的区域，可以自己选
+    html2canvas(context,{ // $()括号里是你要复制生成canvas的区域，可以自己选
         onrendered:function(canvas){
-
             dataURL =canvas.toDataURL("image/png");
-            $("body").append(canvas);
+			var pic = dataURL;
+			//使新生成的图片自带下载链接
+			var link = document.createElement("a");
+			link.setAttribute("href",pic);
+			link.setAttribute("download","capture");
+			var img = document.createElement("img");
+			img.setAttribute("src",pic);
+			link.appendChild(img);
+            $("body").append(link);
         },
         width:1600,
         height:1200
@@ -72,13 +88,29 @@ document.body.appendChild(scripts);
 /*一定要先引入上面的部分，分两步走！！！*/
 /*一定要先引入上面的部分，分两步走！！！*/
 
-(function(){
+;(function(){
+    var w = $("body").width();  
+    var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
+    var newCanvas = document.createElement("canvas");  
+    newCanvas.width = w * 2;  
+    newCanvas.height = h * 2;  
+    newCanvas.style.width = w + "px";  
+    newCanvas.style.height = h + "px";  
+    var context = newCanvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
+    context.scale(2,2); 
 
-    html2canvas($("body"),{ // $()括号里是你要复制生成canvas的区域，可以自己选
+    html2canvas(context,{ // $()括号里是你要复制生成canvas的区域，可以自己选
         onrendered:function(canvas){
-
             dataURL =canvas.toDataURL("image/png");
-            $("body").append(canvas);
+            var pic = dataURL;
+            //使新生成的图片自带下载链接
+            var link = document.createElement("a");
+            link.setAttribute("href",pic);
+            link.setAttribute("download","capture");
+            var img = document.createElement("img");
+            img.setAttribute("src",pic);
+            link.appendChild(img);
+            $("body").append(link);
         },
         width:1600,
         height:1200
