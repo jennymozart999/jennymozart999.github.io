@@ -42,16 +42,17 @@ document.body.appendChild(scripts);
 
 ;(function(){
 	var w = $("body").width();  
-	var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
-	var newCanvas = document.createElement("canvas");  
-    newCanvas.width = w * 2;  
-    newCanvas.height = h * 2;  
-    newCanvas.style.width = w + "px";  
-    newCanvas.style.height = h + "px";  
-	var context = newCanvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
-    context.scale(2,2); 
+var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
+var canvas = document.createElement("canvas");  
+    canvas.width = w * 2;  
+    canvas.height = h * 2;  
+    canvas.style.width = w + "px";  
+    canvas.style.height = h + "px";  
+var context = canvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
+    context.scale(2,2);  
 
-    html2canvas(context,{ // $()括号里是你要复制生成canvas的区域，可以自己选
+    html2canvas($("body"),{ // $()括号里是你要复制生成canvas的区域，可以自己选
+    	canvas: canvas,
         onrendered:function(canvas){
             dataURL =canvas.toDataURL("image/png");
 			var pic = dataURL;
@@ -90,16 +91,17 @@ document.body.appendChild(scripts);
 
 ;(function(){
     var w = $("body").width();  
-    var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
-    var newCanvas = document.createElement("canvas");  
-    newCanvas.width = w * 2;  
-    newCanvas.height = h * 2;  
-    newCanvas.style.width = w + "px";  
-    newCanvas.style.height = h + "px";  
-    var context = newCanvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
-    context.scale(2,2); 
+var h = $("body").height();//要将 canvas 的宽高设置成容器宽高的 2 倍  
+var canvas = document.createElement("canvas");  
+    canvas.width = w * 2;  
+    canvas.height = h * 2;  
+    canvas.style.width = w + "px";  
+    canvas.style.height = h + "px";  
+var context = canvas.getContext("2d");//然后将画布缩放，将图像放大两倍画到画布上  
+    context.scale(2,2);  
 
-    html2canvas(context,{ // $()括号里是你要复制生成canvas的区域，可以自己选
+    html2canvas($("body"),{ // $()括号里是你要复制生成canvas的区域，可以自己选
+        canvas: canvas,
         onrendered:function(canvas){
             dataURL =canvas.toDataURL("image/png");
             var pic = dataURL;
