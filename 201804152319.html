@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
-    <title>Simple</title>
-    <script src="/cdn-cgi/apps/head/boOjnXUsuGMtjHnB0C_MfarX4Xk.js"></script><link rel="shortcut icon" href="/static/favicon.png"/>
+    <title>Jenny's blog</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
 <body>
@@ -27,18 +27,26 @@
 <!-- markdown -->
 ## 测试移动端菜单
 
-我fork了isnowfy的repo “simple”，在main.css里新增了media query，在main.js里新增了创建节点的js代码。
+一直都很喜欢isnowfy的静态博客模板“simple”，但是一直希望如果手机版浏览的时候也有侧边菜单那就更好了。
 
-希望能有用
+于是我又一次fork了simple，更改了main.css，添加了一个max-width: 768px的media query，让“.header”在手机版的时候处于 position: fixed状态，但是left: -140px，这样就看不到它。
+
+再加一个菜单按钮和一个菜单弹出时一起出现的半透明遮罩。
+
+然后修改main.js，动态添加这两个div，点击菜单按钮就能收放侧边菜单，这样差不多就能解决手机版无法显示菜单的问题了。
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
 <h2 id="">测试移动端菜单</h2>
 
-<p>我fork了isnowfy的repo “simple”，在main.css里新增了media query，在main.js里新增了创建节点的js代码。</p>
+<p>一直都很喜欢isnowfy的静态博客模板“simple”，但是一直希望如果手机版浏览的时候也有侧边菜单那就更好了。</p>
 
-<p>希望能有用</p>
+<p>于是我又一次fork了simple，更改了main.css，添加了一个max-width: 768px的media query，让“.header”在手机版的时候处于 position: fixed状态，但是left: -140px，这样就看不到它。</p>
+
+<p>再加一个菜单按钮和一个菜单弹出时一起出现的半透明遮罩。</p>
+
+<p>然后修改main.js，动态添加这两个div，点击菜单按钮就能收放侧边菜单，这样差不多就能解决手机版无法显示菜单的问题了。</p>
 <!-- content end -->
 </div>
 <br>
