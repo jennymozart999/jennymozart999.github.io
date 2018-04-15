@@ -24,6 +24,9 @@ body{padding:0;margin:0}.entry{margin-top:0;margin-bottom:0;margin-left:0;margin
     cursor: pointer;
     display: none;
 }
+#maskLayer, #menuIcon{
+    -webkit-tap-highlight-color: transparent;
+}
 @media all and (max-width: 768px){
 	.header{
 		position: fixed;
